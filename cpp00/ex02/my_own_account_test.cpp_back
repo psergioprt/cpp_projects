@@ -1,0 +1,36 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/20 21:34:31 by pauldos-          #+#    #+#             */
+/*   Updated: 2025/03/26 11:35:58 by pauldos-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Account.hpp"
+#include <iostream>
+
+int	main(void)
+{
+	Account accounts[8] = {100, 736, 528, 356, 817, 150, 350, 900};
+	Account::displayAccountsInfos();
+	for (int i = 0; i < 8; i++)
+		accounts[i].displayStatus();
+	int	depositAmounts[8] = {20, 8, 2, 90, 29, 300, 45, 123};
+	for (int i = 0; i < 8; i++)
+		accounts[i].makeDeposit (depositAmounts[i]);
+	int	withdrawalAmounts[8] = {17, 124, 23, 240, 990, 67, 90, 230};
+	for (int i = 0; i < 8; i++)
+		accounts[i].makeWithdrawal (withdrawalAmounts[i]);
+	for (int i = 0; i < 8; i++)
+		accounts[i].displayStatus();
+	return (0);
+}
+
+
+
+
+
