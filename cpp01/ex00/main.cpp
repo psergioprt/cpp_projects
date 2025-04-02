@@ -1,40 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/02 09:45:27 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/04/02 12:41:38 by pauldos-         ###   ########.fr       */
+/*   Created: 2025/04/02 15:34:07 by pauldos-          #+#    #+#             */
+/*   Updated: 2025/04/02 15:54:33 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#include "Zombie.hpp"
 
-#include <iostream>
-
-class Zombie
+int	main(int argc, char *argv[])
 {
-	private:
-		std::string _name;
+	(void)argc;
 	
-	public:
-		Zombie(); //Constructor
-		~Zombie();//Destructor
-	
-	//getters
-	std::string	get_name(void) const;
+	if (argc == 2)
+	{
+		Zombie	*myZombie;
 
-	//setters
-	void	set_name(const std::string &str);
-
-
-	void	announce(void) const;
-
-};
-
-Zombie *newZombie (std::string name);
-
-#endif
+		myZombie = newZombie(argv[1]);
+		myZombie->announce();
+		delete myZombie;
+	}
+	else
+		std::cout << "No argument found!\n";
+	return (0);
+}

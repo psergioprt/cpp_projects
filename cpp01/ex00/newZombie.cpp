@@ -1,40 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/02 09:45:27 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/04/02 12:41:38 by pauldos-         ###   ########.fr       */
+/*   Created: 2025/04/02 12:00:19 by pauldos-          #+#    #+#             */
+/*   Updated: 2025/04/02 12:22:38 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#include "Zombie.hpp"
 
-#include <iostream>
-
-class Zombie
+Zombie* newZombie( std::string name)
 {
-	private:
-		std::string _name;
-	
-	public:
-		Zombie(); //Constructor
-		~Zombie();//Destructor
-	
-	//getters
-	std::string	get_name(void) const;
-
-	//setters
-	void	set_name(const std::string &str);
-
-
-	void	announce(void) const;
-
-};
-
-Zombie *newZombie (std::string name);
-
-#endif
+	Zombie* newZ = new Zombie();
+	newZ->set_name(name);
+	return (newZ);
+}
