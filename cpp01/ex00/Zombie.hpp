@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 09:45:27 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/04/02 12:41:38 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/04/11 11:46:10 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Zombie
 		std::string _name;
 	
 	public:
-		Zombie(); //Constructor
+		Zombie(std::string name); //Constructor
 		~Zombie();//Destructor
 	
 	//getters
@@ -36,5 +36,6 @@ class Zombie
 };
 
 Zombie *newZombie (std::string name);
+void	randomChump(std::string);
 
 #endif
