@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/06 10:54:23 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/06 10:54:26 by pauldos-         ###   ########.fr       */
+/*   Created: 2025/05/06 10:53:24 by pauldos-          #+#    #+#             */
+/*   Updated: 2025/05/06 10:53:28 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+#ifndef WEAPON_HPP
+#define WEAPON_HPP
 
-int	main()
+#include <iostream>
+
+class Weapon
 {
-	{
-		Weapon club = Weapon("crude spiked club");
-		HumanA bob("Bob", club);
-		bob.attack();
-		club.setType("some other type of club");
-		bob.attack();
-	}
-	{
-		Weapon
-		club = Weapon("crude spiked club");
-		HumanB jim("Jim");
-		jim.setWeapon(club);
-		jim.attack();
-		club.setType("some other type of club");
-		jim.attack();
-	}
-}
+	private:
+		std::string _type;
+	public:
+		Weapon(std::string type); //constructor
+		~Weapon(); //destructor
+	
+		//getters
+		const	std::string&	getType() const;
+	
+		//setters
+		void	setType(const std::string& type);
+};
+
+#endif

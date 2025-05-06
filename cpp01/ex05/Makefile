@@ -1,12 +1,11 @@
-NAME = brain
+NAME = karen
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp
+SRC = main.cpp Karen.cpp
 OBJ = $(SRC:.cpp=.o)
 RM = rm -f
 
 all: $(NAME)
-
 $(NAME): $(OBJ)
 	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
@@ -16,6 +15,6 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 
-re: fclean $(NAME)
+re: fclean all
 
-.PHONY: all, clean, fclean, re
+.PHONY: all clean fclean re

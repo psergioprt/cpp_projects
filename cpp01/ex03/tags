@@ -1,0 +1,34 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/pauldos-/Documents/cpp_projects/cpp01/ex02/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	//
+HUMANA_HPP	HumanA.hpp	/^#define HUMANA_HPP$/;"	d
+HUMANB_HPP	HumanB.hpp	/^#define HUMANB_HPP$/;"	d
+HumanA	HumanA.cpp	/^HumanA::HumanA(const std::string& name, Weapon& weapon) : _name(name), _weapon(weapon)$/;"	f	class:HumanA
+HumanA	HumanA.hpp	/^class HumanA$/;"	c
+HumanB	HumanB.cpp	/^HumanB::HumanB(const std::string& name) : _name(name), _weapon(NULL)$/;"	f	class:HumanB
+HumanB	HumanB.hpp	/^class HumanB$/;"	c
+WEAPON_HPP	Weapon.hpp	/^#define WEAPON_HPP$/;"	d
+Weapon	Weapon.cpp	/^Weapon::Weapon(std::string type) : _type(type)$/;"	f	class:Weapon
+Weapon	Weapon.hpp	/^class Weapon$/;"	c
+_name	HumanA.hpp	/^		std::string _name;$/;"	m	class:HumanA	typeref:typename:std::string
+_name	HumanB.hpp	/^		std::string _name;$/;"	m	class:HumanB	typeref:typename:std::string
+_type	Weapon.hpp	/^		std::string _type;$/;"	m	class:Weapon	typeref:typename:std::string
+_weapon	HumanA.hpp	/^		Weapon& _weapon;$/;"	m	class:HumanA	typeref:typename:Weapon &
+_weapon	HumanB.hpp	/^		Weapon* _weapon;$/;"	m	class:HumanB	typeref:typename:Weapon *
+attack	HumanA.cpp	/^void	HumanA::attack() const$/;"	f	class:HumanA	typeref:typename:void
+attack	HumanB.cpp	/^void	HumanB::attack() const$/;"	f	class:HumanB	typeref:typename:void
+getType	Weapon.cpp	/^const	std::string&	Weapon::getType() const$/;"	f	class:Weapon	typeref:typename:const std::string &
+main	main.cpp	/^int	main()$/;"	f	typeref:typename:int
+setType	Weapon.cpp	/^void	Weapon::setType(const std::string& type)$/;"	f	class:Weapon	typeref:typename:void
+setWeapon	HumanB.cpp	/^void	HumanB::setWeapon(Weapon& weapon)$/;"	f	class:HumanB	typeref:typename:void
+~HumanA	HumanA.cpp	/^HumanA::~HumanA()$/;"	f	class:HumanA
+~HumanB	HumanB.cpp	/^HumanB::~HumanB()$/;"	f	class:HumanB
+~Weapon	Weapon.cpp	/^Weapon::~Weapon()$/;"	f	class:Weapon

@@ -1,7 +1,7 @@
-NAME = karen
+NAME = replace
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp Karen.cpp
+SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
 RM = rm -f
 

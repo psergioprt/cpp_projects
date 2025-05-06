@@ -1,24 +1,21 @@
-NAME = weapon
+NAME = brain
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
 RM = rm -f
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
-clean: 
-	@$(RM) $(OBJ)
+clean:
+	$(RM) $(OBJ)
 
 fclean: clean
-	@$(RM) $(NAME)
+	$(RM) $(NAME)
 
 re: fclean $(NAME)
 
-run: all
-	@./$(NAME)
-
-.PHONY: all clean fclean re
+.PHONY: all, clean, fclean, re
