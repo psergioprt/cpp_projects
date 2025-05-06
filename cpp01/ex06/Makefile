@@ -1,7 +1,7 @@
-NAME = karen
+NAME = karenFilter
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = 
+SRC = main.cpp Karen.cpp 
 OBJ = $(SRC:.cpp=.o)
 RM = rm -f
 
