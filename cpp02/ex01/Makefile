@@ -17,6 +17,7 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
+
 run: all
 	./$(NAME)
 
