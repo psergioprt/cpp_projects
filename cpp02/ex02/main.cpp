@@ -5,15 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/09 15:45:21 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/09 15:45:29 by pauldos-         ###   ########.fr       */
+/*   Created: 2025/05/09 15:29:27 by pauldos-          #+#    #+#             */
+/*   Updated: 2025/05/09 15:31:27 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <iostream>
-
-int main( void )
+	int main( void )
 {
 	Fixed a;
 	Fixed const b( 10 );

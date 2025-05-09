@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauldos- <pauldos-@student.42.porto.com>   +#+  +:+       +#+        */
+/*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/08 18:56:36 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/09 11:02:31 by pauldos-         ###   ########.fr       */
+/*   Created: 2025/05/09 15:45:02 by pauldos-          #+#    #+#             */
+/*   Updated: 2025/05/09 15:45:05 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ class Fixed
 
 		float	toFloat( void ) const; //NEW: fixed -> float
 		int	toInt( void ) const; //NEW: fixed -> int
-					     
 };
 
 // NEW: operator<< overload
