@@ -6,16 +6,31 @@
 /*   By: pauldos- <pauldos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 19:12:12 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/08 20:15:01 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/05/09 11:07:15 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include <iostream>
+#include <cmath>
 
 Fixed::Fixed()
 {
 	std::cout << "Default constructor called" << std::endl;
 	this->_fixedPointValue = 0;
+}
+
+Fixed::Fixed(const int n)
+{
+	std::cout << "Int converter called" << std::endl;
+	this->_fixedPointValue = n << _fractionalBits;
+	
+}
+
+Fixed::Fixed(const float n)
+{
+	std::cout << "Float converter called" << std::endl;
+	this->_fixedPointValue = roundf(n * (1 << _fractionalBits));
 }
 
 Fixed::~Fixed()
@@ -37,7 +52,7 @@ Fixed& Fixed::operator=(const Fixed& other)
 	return (*this);
 }
 
-int	Fixed::getRawBits()const
+int	Fixed::getRawBits() const
 {
 	std::cout << "getRawBits member function called" << std::endl;
 	return (this->_fixedPointValue);
@@ -48,3 +63,23 @@ void	Fixed::setRawBits(int const raw)
 	std::cout << "setRawBits member function called" << std::endl;
 	this->_fixedPointValue = raw;
 }
+
+float	Fixed::toFloat() const
+{
+	return (static_cast<float>(_fixedPointValue) / (1 << _fractionalBits));
+
+}
+
+int	Fixed::toInt() const
+{
+	return (_fixedPointValue >> _fractionalBits);
+}
+
+std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
+{
+	out << fixed.toFloat();
+	return (out);
+}
+
+
+

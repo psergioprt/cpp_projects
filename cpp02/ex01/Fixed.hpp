@@ -6,7 +6,7 @@
 /*   By: pauldos- <pauldos-@student.42.porto.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 18:56:36 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/08 20:42:04 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/05/09 11:02:31 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ class Fixed
 		static const int	_fractionalBits = 8;
 	public:
 		Fixed( void ); // default constructor
-		Fixed( const int ); // NEW: from int
-		Fixed( const float ); // NEW: from float
+		Fixed( const int n); // NEW: from int
+		Fixed( const float n); // NEW: from float
 		Fixed(const Fixed& other); // Copy constructor
 		Fixed& operator=(const Fixed& other); // Copy assignment operator
 		~Fixed ( void ); // Destructor
@@ -34,8 +34,9 @@ class Fixed
 		float	toFloat( void ) const; //NEW: fixed -> float
 		int	toInt( void ) const; //NEW: fixed -> int
 					     
-		// NEW: operator<< overload
-		std::ostream& operator<<(std::ostream& out, const Fixed& fixed);
 };
+
+// NEW: operator<< overload
+std::ostream& operator<<(std::ostream& out, const Fixed& fixed);
 
 #endif
