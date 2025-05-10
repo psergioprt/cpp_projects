@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 14:05:17 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/09 15:28:44 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/05/10 14:00:06 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ Fixed& Fixed::operator=(const Fixed& other)
 {
 	if (this != &other)
 		this->_fixedPointValue = other._fixedPointValue;
-	return (*this);
+	return *this;
 }
 
 Fixed::~Fixed()
@@ -52,7 +52,7 @@ Fixed::~Fixed()
 int	Fixed::getRawBits()
 {
 	std::cout << "getRawBits member function called" << std::endl;
-	return (this->_fixedPointValue);
+	return this->_fixedPointValue;
 }
 
 void	Fixed::setRawBits(int const raw)
@@ -63,16 +63,62 @@ void	Fixed::setRawBits(int const raw)
 
 float	Fixed::toFloat() const
 {
-	return (static_cast<float>(_fixedPointValue) / (1 << _fractionalBits));
+	return static_cast<float>(_fixedPointValue) / (1 << _fractionalBits);
 }
 
 int	Fixed::toInt() const
 {
-	return (_fixedPointValue >> _fractionalBits);
+	return _fixedPointValue >> _fractionalBits;
 }
 
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
 {
 	out << fixed.toFloat();
-	return (out);
+	return out;
 }
+
+bool	Fixed::operator>(const Fixed& other) const
+{
+	return this->_fixedPointValue > other._fixedPointValue;
+}
+
+bool	Fixed::operator<(const Fixed& other) const
+{
+	return this->_fixedPointValue < other._fixedPointValue;
+}
+
+bool	Fixed::operator>=(const Fixed& other) const
+{
+	return this->_fixedPointValue >= other._fixedPointValue;
+}
+
+bool	Fixed::operator<=(const Fixed& other) const
+{
+	return this->_fixedPointValue <= other._fixedPointValue;
+}
+
+bool	Fixed::operator==(const Fixed& other) const
+{
+	return this->_fixedPointValue == other._fixedPointValue;
+}
+
+bool	Fixed::operator!=(const Fixed& other) const
+{
+	return this->_fixedPointValue != other._fixedPointValue;
+}
+
+Fixed::Fixed operator+(const Fixed& other) const
+{
+	Fixed	result;
+	result.setRawbits(this->_fixedPointValue + other._fixedPointValue);
+	return result;
+}
+
+Fixed::Fixed operator-(const Fixed& other) const
+{
+	Fixed	result;
+	result.setRawbits(this->_fixedPointValue - other._fixedPointValue);
+	return result;
+}
+
+
