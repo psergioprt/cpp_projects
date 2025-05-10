@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 14:05:17 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/10 14:00:06 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/05/10 15:35:21 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,18 +107,76 @@ bool	Fixed::operator!=(const Fixed& other) const
 	return this->_fixedPointValue != other._fixedPointValue;
 }
 
-Fixed::Fixed operator+(const Fixed& other) const
+Fixed Fixed::operator+(const Fixed& other) const
 {
 	Fixed	result;
-	result.setRawbits(this->_fixedPointValue + other._fixedPointValue);
+	result.setRawBits(this->_fixedPointValue + other._fixedPointValue);
 	return result;
 }
 
-Fixed::Fixed operator-(const Fixed& other) const
+Fixed Fixed::operator-(const Fixed& other) const
 {
 	Fixed	result;
-	result.setRawbits(this->_fixedPointValue - other._fixedPointValue);
+	result.setRawBits(this->_fixedPointValue - other._fixedPointValue);
 	return result;
 }
 
+Fixed Fixed::operator*(const Fixed& other) const
+{
+	Fixed	result;
+	result.setRawBits((this->_fixedPointValue * other._fixedPointValue) >> _fractionalBits);
+	return result;
+}
 
+Fixed Fixed::operator/(const Fixed& other) const
+{
+	Fixed	result;
+	result.setRawBits((this->_fixedPointValue << _fractionalBits) / other._fixedPointValue);
+	return result;
+}
+
+Fixed& Fixed::operator++()
+{
+	++this->_fixedPointValue;
+	return *this;
+}
+
+Fixed& Fixed::operator--()
+{
+	--this->_fixedPointValue;
+	return *this;
+}
+
+Fixed Fixed::operator++(int)
+{
+	Fixed temp = *this;
+	++this->_fixedPointValue;
+	return temp;
+}
+
+Fixed Fixed::operator--(int)
+{
+	Fixed temp = *this;
+	++this->_fixedPointValue;
+	return temp;
+}
+
+Fixed& Fixed::min(Fixed& a, Fixed& b)
+{
+	return (a < b) ? a : b;
+}
+
+const Fixed& Fixed::min(const Fixed& a, const Fixed& b)
+{
+	return (a < b) ? a : b;
+}
+
+Fixed& Fixed::max(Fixed& a, Fixed& b)
+{
+	return (a > b) ? a : b;
+}
+
+const Fixed& Fixed::max(const Fixed& a, const Fixed& b)
+{
+	return (a > b) ? a : b;
+}

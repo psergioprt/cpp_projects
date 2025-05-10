@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 11:43:03 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/10 11:16:09 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/05/10 14:52:18 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ class Fixed
 		static const Fixed& max(const Fixed& a, const Fixed& b);
 };
 
-//operator<<overload
+// operator<<overload
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed);
 
 #endif
