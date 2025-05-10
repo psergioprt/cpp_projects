@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 11:43:03 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/09 16:02:01 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/05/10 10:53:13 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,18 @@ class Fixed
 		Fixed	operator*(const Fixed& other) const;
 		Fixed	operator/(const Fixed& other) const;
 
+		Fixed& operator++(); // Pre-increment operator
+		Fixed& operator--(); // Pre-decrement operator
+		Fixed operator++(int); // Post-increment operator
+		Fixed operator--(int); // Post-decrement operator
+		
+		// Min functions
+		static Fixed& min(Fixed& a, Fixed& b);
+		static const Fixed& min(const Fixed& a, const Fixed& b);
+
+		// Max functions
+		static Fixed& max(Fixed& a, Fixed& b);
+		static const Fixed& max(const Fixed& a, const Fixed& b);
 };
 
 //operator<<overload
