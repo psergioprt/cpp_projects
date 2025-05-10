@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Point.hpp                                          :+:      :+:    :+:   */
+/*   bsp.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauldos- <pauldos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/10 17:31:48 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/10 17:37:34 by pauldos-         ###   ########.fr       */
+/*   Created: 2025/05/10 21:26:45 by pauldos-          #+#    #+#             */
+/*   Updated: 2025/05/10 21:46:58 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef POINT_HPP
-#define POINT_HPP
-
+#include <iostream>
 #include "Fixed.hpp"
+#include "Point.hpp"
 
-class Point
+static Fixed area(Point const& p1, Point const& p2, Point const& p3)
 {
-	private:
-		const Fixed	_x;
-		const Fixed	_y;
-		// Anything else usefull
+	//(x1 * (y2 - y3)) + (x2 * (y3 - y1)) + (x3 * (y1 - y2))
+}
 
-	public:
-		Point( void ); // Default constructor
-		Point( const float n, const float m ); // Constructor takes 2 const float
-		Point( const Point& other ); // Copy constructor
-		Point& operator=(const Point& other); // Copy assignment operator overload
-		~Point( void ); // Destructor
-};
+bool	bsp( Point const a, Point const b, Point const c, Point const point)
+{
 
-#endif
+}
