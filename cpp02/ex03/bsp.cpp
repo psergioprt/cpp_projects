@@ -6,7 +6,7 @@
 /*   By: pauldos- <pauldos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 21:26:45 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/11 09:53:58 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/05/11 10:58:20 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ std::cout << "A1: " << area1 << ", A2: " << area2 << ", A3: " << area3 << std::e
 		return false;
 
 	// Check if the sum of the small areas is close enough to the total area
-	//const Fixed tolerance = Fixed(0.0001f); // small tolerance for floating-point comparison
-	const Fixed tolerance = Fixed(0.1f); 
+	//const Fixed tolerance = Fixed(0.01f); // small tolerance for floating-point comparison
+	const Fixed tolerance = Fixed(0.01f); 
 	if ((area1 + area2 + area3 - totalArea).abs() < tolerance)
         	return true;
 	return false;
