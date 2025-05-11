@@ -6,7 +6,7 @@
 /*   By: pauldos- <pauldos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 16:53:54 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/10 16:54:00 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/05/11 09:48:00 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@
 
 Fixed::Fixed()
 {
-	std::cout << "Default constructor called" << std::endl;
+//	std::cout << "Default constructor called" << std::endl;
 	this->_fixedPointValue = 0;
 }
 
 Fixed::Fixed(const int n)
 {
-	std::cout << "Int constructor called" << std::endl;
+//	std::cout << "Int constructor called" << std::endl;
 	this->_fixedPointValue = n << _fractionalBits;
 }
 
 Fixed::Fixed(const float n)
 {
-	std::cout << "Float constructor called" << std::endl;
+//	std::cout << "Float constructor called" << std::endl;
 	this->_fixedPointValue = roundf(n * (1 << _fractionalBits));
 }
 
@@ -49,15 +49,15 @@ Fixed::~Fixed()
 //	std::cout << "Destructor called" << std::endl;
 }
 
-int	Fixed::getRawBits()
+int	Fixed::getRawBits() const
 {
-	std::cout << "getRawBits member function called" << std::endl;
+//	std::cout << "getRawBits member function called" << std::endl;
 	return this->_fixedPointValue;
 }
 
 void	Fixed::setRawBits(int const raw)
 {
-	std::cout << "setRawBits member function called" << std::endl;
+//	std::cout << "setRawBits member function called" << std::endl;
 	this->_fixedPointValue = raw;
 }
 
@@ -179,4 +179,11 @@ Fixed& Fixed::max(Fixed& a, Fixed& b)
 const Fixed& Fixed::max(const Fixed& a, const Fixed& b)
 {
 	return (a > b) ? a : b;
+}
+
+Fixed Fixed::abs() const
+{
+	if (toFloat() < 0)
+		return Fixed(-toFloat());
+	return *this;
 }

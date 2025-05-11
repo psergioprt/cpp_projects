@@ -6,7 +6,7 @@
 /*   By: pauldos- <pauldos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 16:54:11 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/10 16:54:15 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/05/10 23:57:32 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Fixed
 		Fixed& operator = (const Fixed& other); // Copy assignement operator
 		~Fixed( void ); // Destructor
 				
-		int	getRawBits( void );
+		int	getRawBits( void ) const;
 		void	setRawBits( int const raw);
 
 		float	toFloat( void ) const; // float converter
@@ -60,6 +60,8 @@ class Fixed
 		// Max functions
 		static Fixed& max(Fixed& a, Fixed& b);
 		static const Fixed& max(const Fixed& a, const Fixed& b);
+
+		Fixed abs() const;
 };
 
 // operator<<overload
