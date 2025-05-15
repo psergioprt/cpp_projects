@@ -6,7 +6,7 @@
 /*   By: pauldos- <pauldos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 18:11:03 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/13 16:04:56 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/05/15 14:48:44 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 class ScavTrap : public ClapTrap
 {
 	public:
+		ScavTrap();
 		ScavTrap( std::string name );
 		~ScavTrap( void );
 		

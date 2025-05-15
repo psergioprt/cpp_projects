@@ -6,7 +6,7 @@
 /*   By: pauldos- <pauldos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 11:32:52 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/12 19:06:51 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/05/15 14:46:38 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class ClapTrap
 		unsigned int	_energyPoints;
 		unsigned int	_attackDamage;
 	public:
+		ClapTrap();
 		ClapTrap( std::string name);
 		~ClapTrap( void );
 

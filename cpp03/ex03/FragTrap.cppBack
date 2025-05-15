@@ -6,7 +6,7 @@
 /*   By: pauldos- <pauldos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 11:47:31 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/15 15:23:35 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/05/15 13:11:14 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,7 @@
 
 FragTrap::FragTrap() : ClapTrap("default")
 {
-	_hitPoints = 100;
-	_energyPoints = 100;
-	_attackDamage = 30;
-	std::cout << "Default FragTrap has been created!" << std::endl;
+	std::cout << "Default FragTrap created" << std::endl;
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
@@ -26,22 +23,23 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 	_hitPoints = 100;
 	_energyPoints = 100;
 	_attackDamage = 30;
-	std::cout << "FragTrap " << _name << " has been created at " << this << " with " << _hitPoints << " hit points, " << _energyPoints << " energy points, " << _attackDamage << " attack damage!" << std::endl;
+	std::cout << "FragTrap " << _name << " has been created with " << _hitPoints << " hit points, " << _energyPoints << " energy points, " << _attackDamage << " attack damage!" << std::endl;
+
 }
 
 FragTrap::~FragTrap()
 {
-	std::cout << "FragTrap " << _name << " has been destroyed at " << this << "!" << std::endl;
+	std::cout << "FragTrap " << _name << " has been destroyed!" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other)
 {
-	std::cout << "FragTrap copy constructor called for " << other._name << " at " << this << "!" << std::endl;
+	std::cout << "FragTrap copy constructor called for " << other._name << std::endl;
 }
 
 FragTrap& FragTrap::operator=(const FragTrap& other)
 {
-	std::cout << "FragTrap assignment operator called for " << other._name << " at " << this << "!" << std::endl;
+	std::cout << "FragTrap assignment operator called for " << other._name << std::endl;
 	if (this != &other)
 	{
 		ClapTrap::operator=(other);		

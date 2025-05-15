@@ -5,39 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauldos- <pauldos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/13 15:56:36 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/15 15:00:00 by pauldos-         ###   ########.fr       */
+/*   Created: 2025/05/15 11:16:14 by pauldos-          #+#    #+#             */
+/*   Updated: 2025/05/15 11:52:23 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "ScavTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int	main()
 {
-	ScavTrap	st("Newton");
-	ScavTrap	st2("Tesla");
+	DiamondTrap dt("DaVinci");
+	
+	dt.attack("Leonardo");
+	dt.takeDamage(5);
+	dt.beRepaired(10);
 
-	st.attack("Isaac");
-	st.takeDamage(30);
-	st.beRepaired(20);
-	st.guardGate();
-
-	st2.attack("Elon");
-	st2.takeDamage(20);
-	st2.beRepaired(10);
-	st2.guardGate();
+	std::cout << "Testing whoAmI\n";
+	dt.whoAmI();
 
 	std::cout << "Testing copy constructor\n";
-	ScavTrap stCopy(st);
-	ScavTrap st2Copy(st2);
+	DiamondTrap dtCopy(dt);
 
 	std::cout << "Testing assignment operator\n";
-	ScavTrap stAssign("Temp");
-	stAssign = st;
-	ScavTrap st2Assign("Temp2");
-	st2Assign = st2;
+	DiamondTrap dtAssigned("Temp");
+	dtAssigned = dt;
 
-	std::cout << "Destruction will happen in reverse order of creation.\n";
-	return 0;
+	std::cout << "Destruction will happen in reverse order.\n";
+	return 0;	
 }

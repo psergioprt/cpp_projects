@@ -6,7 +6,7 @@
 /*   By: pauldos- <pauldos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 11:32:52 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/15 13:27:08 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/05/15 12:26:31 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class ClapTrap
 {
-	private:
+	protected:
 		std::string 	_name;
 		unsigned int	_hitPoints;
 		unsigned int	_energyPoints;
