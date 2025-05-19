@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 15:44:43 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/09 15:44:51 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/05/19 10:29:35 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,3 @@ std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
 	out << fixed.toFloat();
 	return (out);
 }
-
-
-
