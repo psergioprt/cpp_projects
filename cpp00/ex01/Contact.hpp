@@ -6,14 +6,13 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 11:55:56 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/04/01 12:12:01 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/05/20 21:31:07 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 
-#include <iostream>
 #include <string>
 
 class Contact

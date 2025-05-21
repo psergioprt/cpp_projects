@@ -16,11 +16,11 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 
-re: fclean $(NAME)
+re: fclean all
 
 run: all
 	./$(NAME) "shhhhh... I think the students are asleep..."
 	./$(NAME) Damnit " ! " "Sorry students, I thought this thing was off."
 	./$(NAME)
 	
-.PHONY: all, clean, fclean, re, run
+.PHONY: all clean fclean re run

@@ -6,11 +6,12 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 20:57:42 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/04/01 12:10:53 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/05/20 22:23:19 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
+#include <iostream>
 
 Contact::Contact(void)
 {
