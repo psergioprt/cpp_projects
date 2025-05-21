@@ -1,0 +1,2 @@
+diff <(cut -c 18- 19920104_091532.log) <(cut -c 18- testing.txt)
+diff <(awk '{$1=""; print}' 19920104_091532.log) <(awk '{$1=""; print}' testing.txt)
