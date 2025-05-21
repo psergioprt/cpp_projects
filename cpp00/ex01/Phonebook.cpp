@@ -6,11 +6,12 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 10:27:01 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/04/01 23:54:21 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/05/21 11:00:29 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Phonebook.hpp"
+#include <cstdlib>
 
 Phonebook::Phonebook(void)
 {
@@ -22,7 +23,7 @@ Phonebook::Phonebook(void)
 	std::cout << "|  SEARCH command for searching a contact by index  |" << std::endl;
 	std::cout << "|  EXIT command for exiting program                 |" << std::endl;
 	std::cout << "|__________________________________________________ |" << std::endl;
-	}
+}
 
 Phonebook::~Phonebook(void)
 {
