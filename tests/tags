@@ -1,0 +1,53 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/pauldos-/Documents/cpp/tests/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	//
+Example	test10.cpp	/^Example::Example()$/;"	f	class:Example
+Example	test10.hpp	/^class Example$/;"	c
+add_salary	test7.cpp	/^		void	add_salary(double value)$/;"	f	class:employees	typeref:typename:void	file:
+balance	test5.cpp	/^		double balance;$/;"	m	class:bankAccount	typeref:typename:double	file:
+bankAccount	test5.cpp	/^class bankAccount$/;"	c	file:
+bonus	test7.cpp	/^		double	bonus(void)$/;"	f	class:employees	typeref:typename:double	file:
+calculate_bonus	test6.cpp	/^		double calculate_bonus(void)$/;"	f	class:employees	typeref:typename:double	file:
+calculate_bonus	test8.cpp	/^		double	calculate_bonus(void)$/;"	f	class:employees	typeref:typename:double	file:
+define_salary	test8.cpp	/^		void	define_salary(double ammount)$/;"	f	class:employees	typeref:typename:void	file:
+define_salary	test9.cpp	/^		void	define_salary(double ammount)$/;"	f	class:employees	typeref:typename:void	file:
+employees	test6.cpp	/^class employees$/;"	c	file:
+employees	test7.cpp	/^class employees$/;"	c	file:
+employees	test8.cpp	/^class	employees$/;"	c	file:
+employees	test9.cpp	/^class	employees$/;"	c	file:
+get_salary	test6.cpp	/^		double	get_salary(void)$/;"	f	class:employees	typeref:typename:double	file:
+main	main10.cpp	/^int	main()$/;"	f	typeref:typename:int
+main	test1.cpp	/^int main(void)$/;"	f	typeref:typename:int
+main	test2.cpp	/^int main(void)$/;"	f	typeref:typename:int
+main	test3.cpp	/^int main(void)$/;"	f	typeref:typename:int
+main	test4.cpp	/^int main()$/;"	f	typeref:typename:int
+main	test5.cpp	/^int	main(void)$/;"	f	typeref:typename:int
+main	test6.cpp	/^int	main()$/;"	f	typeref:typename:int
+main	test7.cpp	/^int main()$/;"	f	typeref:typename:int
+main	test8.cpp	/^int	main(void)$/;"	f	typeref:typename:int
+main	test9.cpp	/^int	main(void)$/;"	f	typeref:typename:int
+name	test5.cpp	/^		string name;$/;"	m	class:bankAccount	typeref:typename:string	file:
+name	test6.cpp	/^		string name;$/;"	m	class:employees	typeref:typename:string	file:
+name	test7.cpp	/^		string	name;$/;"	m	class:employees	typeref:typename:string	file:
+name	test8.cpp	/^		string	name;$/;"	m	class:employees	typeref:typename:string	file:
+name	test9.cpp	/^		string	name;$/;"	m	class:employees	typeref:typename:string	file:
+print	test5.cpp	/^		void print(void)$/;"	f	class:bankAccount	typeref:typename:void	file:
+print	test7.cpp	/^		void 	print(void)$/;"	f	class:employees	typeref:typename:void	file:
+print	test8.cpp	/^		void	print(void)$/;"	f	class:employees	typeref:typename:void	file:
+print	test9.cpp	/^		void	print(void)$/;"	f	class:employees	typeref:typename:void	file:
+print_bonus	test6.cpp	/^		void	print_bonus(void)$/;"	f	class:employees	typeref:typename:void	file:
+salary	test6.cpp	/^		double	salary;$/;"	m	class:employees	typeref:typename:double	file:
+salary	test7.cpp	/^		double salary;$/;"	m	class:employees	typeref:typename:double	file:
+salary	test8.cpp	/^		double	salary;$/;"	m	class:employees	typeref:typename:double	file:
+salary	test9.cpp	/^		double	salary;$/;"	m	class:employees	typeref:typename:double	file:
+set_salary	test6.cpp	/^		void	set_salary(double potential_salary)$/;"	f	class:employees	typeref:typename:void	file:
+value	test10.hpp	/^		int	value;$/;"	m	class:Example	typeref:typename:int
+withdraw	test5.cpp	/^		void withdraw(int ammount)$/;"	f	class:bankAccount	typeref:typename:void	file:
