@@ -6,11 +6,12 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 15:34:07 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/04/11 11:51:09 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/05/23 09:37:57 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+#include <iostream>
 
 int	main(int argc, char *argv[])
 {
