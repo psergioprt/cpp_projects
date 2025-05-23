@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 15:34:07 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/23 09:37:57 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/05/23 19:25:21 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 int	main(int argc, char *argv[])
 {
-	(void)argc;
-	
 	if (argc == 2)
 	{
 		Zombie	*myZombie;

@@ -6,14 +6,14 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 10:53:24 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/06 10:53:28 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/05/23 21:22:05 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WEAPON_HPP
 #define WEAPON_HPP
 
-#include <iostream>
+#include <string>
 
 class Weapon
 {
@@ -29,5 +29,4 @@ class Weapon
 		//setters
 		void	setType(const std::string& type);
 };
-
 #endif

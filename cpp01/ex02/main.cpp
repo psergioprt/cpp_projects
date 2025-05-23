@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 10:30:31 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/04/28 11:28:41 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/05/23 21:05:47 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,5 @@ int	main(void)
 	std::cout << "string using pointer: " << *stringPTR << std::endl;
 	std::cout << "string using reference: " << stringREF << std::endl;
 
-	return (0);
-
+	return 0;
 }

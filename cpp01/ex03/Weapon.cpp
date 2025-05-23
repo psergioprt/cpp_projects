@@ -6,11 +6,12 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 10:54:16 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/06 10:54:18 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/05/23 21:25:50 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
+#include <iostream>
 
 Weapon::Weapon(std::string type) : _type(type)
 {

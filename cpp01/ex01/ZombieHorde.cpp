@@ -6,26 +6,29 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 11:20:47 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/07 12:09:27 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/05/23 20:53:37 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+#include <sstream>
 
 Zombie*	zombieHorde(int N, std::string name)
 {
 	Zombie*	horde;
 	int	i;
 
-	horde = new Zombie[N];
 	i = 0;
-
 	if (N <= 0)
-		return (NULL);
+		return NULL;
+	horde = new Zombie[N];
 	while (i < N)
 	{
-		horde[i].set_name(name);
+		std::ostringstream num;
+		num << i;
+		std::string numberedName = name + num.str();
+		horde[i].set_name(numberedName);
 		i++;
 	}
-	return (horde);
+	return horde;
 }

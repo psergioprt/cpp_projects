@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 12:00:19 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/04/11 11:39:47 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/05/23 19:38:57 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,5 @@
 Zombie* newZombie( std::string name)
 {
 	Zombie* newZ = new Zombie(name);
-	newZ->set_name(name);
 	return (newZ);
 }

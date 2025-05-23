@@ -6,16 +6,15 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 10:54:15 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/23 11:20:17 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/05/23 18:52:20 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 #include <iostream>
 
-Zombie::Zombie(std::string name)// : _name(name)
+Zombie::Zombie(std::string name) : _name(name)
 {
-	this->_name = name;
 	std::cout << "Zombi object named " << this->_name << " has been created!" << std::endl;
 }
 

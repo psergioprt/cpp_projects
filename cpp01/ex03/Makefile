@@ -8,17 +8,14 @@ RM = rm -f
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
 clean: 
-	@$(RM) $(OBJ)
+	$(RM) $(OBJ)
 
 fclean: clean
-	@$(RM) $(NAME)
+	$(RM) $(NAME)
 
 re: fclean $(NAME)
-
-run: all
-	@./$(NAME)
 
 .PHONY: all clean fclean re

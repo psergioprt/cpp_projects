@@ -6,11 +6,12 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 10:27:07 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/07 12:25:35 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/05/23 20:01:40 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+#include <iostream>
 
 Zombie::Zombie()
 {

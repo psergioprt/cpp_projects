@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 10:31:18 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/07 12:13:10 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/05/23 20:37:51 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	main()
 
 	count = 5;
 	i = 0;
-
 	horde = zombieHorde(count, "Walker");
 	while (i < count)
 	{
@@ -30,5 +29,5 @@ int	main()
 		i++;
 	}
 	delete [] horde;
-	return (0);
+	return 0;
 }
