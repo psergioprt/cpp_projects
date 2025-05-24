@@ -6,14 +6,14 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 11:47:21 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/06 11:47:25 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/05/24 16:22:22 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef KAREN_HPP
 #define KAREN_HPP
 
-#include <iostream>
+#include <string>
 
 class Karen
 {
@@ -25,8 +25,7 @@ class Karen
 	
 	public:
 		void	complain( std::string level );
-		Karen (void);
-		~Karen (void);
+		Karen ( void );
+		~Karen ( void );
 };
-
 #endif

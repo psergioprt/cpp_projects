@@ -6,11 +6,12 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 11:47:12 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/06 11:47:15 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/05/24 16:54:27 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Karen.hpp"
+#include <iostream>
 
 Karen::Karen()
 {
@@ -44,6 +45,29 @@ void	Karen::error( void )
 
 void	Karen::complain( std::string level )
 {
+	std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	void	(Karen::*functions[])() =
+	{
+		&Karen::debug,
+		&Karen::info,
+		&Karen::warning,
+		&Karen::error
+	};
+	int	i = 0;
+	while (i < 4)
+	{
+		if (level == levels[i])
+		{
+			(this->*functions[i])();
+			return ;
+		}
+		i++;
+	}
+}
+
+//TO REMOVE IN THE PROJECT THE BELLOW
+/*void	Karen::complain( std::string level )
+{
 	typedef	void (Karen::*KarenFunction)();
 
 	std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
@@ -64,4 +88,4 @@ void	Karen::complain( std::string level )
 		}
 		i++;
 	}
-}
+}*/
