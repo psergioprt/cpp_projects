@@ -6,11 +6,12 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 14:23:52 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/06 15:45:24 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/05/24 18:54:45 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Karen.hpp"
+#include <iostream>
 
 int	main(int argc, char *argv[])
 {

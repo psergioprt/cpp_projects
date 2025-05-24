@@ -6,14 +6,14 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 14:17:23 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/06 14:36:47 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/05/24 18:15:50 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef KAREN_HPP
 #define KAREN_HPP
 
-#include <iostream>
+#include <string>
 
 class	Karen
 {
@@ -28,5 +28,4 @@ class	Karen
 		Karen();
 		~Karen();
 };
-
 #endif

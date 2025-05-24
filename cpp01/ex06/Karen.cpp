@@ -6,20 +6,21 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 14:20:17 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/06 15:50:48 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/05/24 18:36:20 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Karen.hpp"
+#include <iostream>
 
 Karen::Karen()
 {
-	std::cout << "starting karen!" << std::endl;
+	std::cout << "Starting up Karen logger" << std::endl;
 }
 
 Karen::~Karen()
 {
-	std::cout << "exiting karen!" << std::endl;
+	std::cout << "Shutting down Karen logger!" << std::endl;
 }
 
 void	Karen::debug()
@@ -48,6 +49,28 @@ void	Karen::error()
 
 void	Karen::complain( std::string level )
 {
+	std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	void	(Karen::*functions[])() =
+	{
+		&Karen::debug,
+		&Karen::info,
+		&Karen::warning,
+		&Karen::error,
+	};
+	int	i = 0;
+	while (i < 4)
+	{
+		if (level == levels[i])
+		{
+			(this->*functions[i])();
+			return ;
+		}
+		i++;
+	}
+}
+
+/*void	Karen::complain( std::string level )
+{
 	typedef void	(Karen::*KarenFunction)();
 
 	std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
@@ -69,3 +92,4 @@ void	Karen::complain( std::string level )
 		i++;
 	}
 }
+*/
