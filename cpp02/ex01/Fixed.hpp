@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 15:45:02 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/09 15:45:05 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/14 20:01:33 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,10 @@ class Fixed
 
 		float	toFloat( void ) const; //NEW: fixed -> float
 		int	toInt( void ) const; //NEW: fixed -> int
+		friend	std::ostream& operator<<(std::ostream& out, const Fixed& fixed);
 };
 
 // NEW: operator<< overload
-std::ostream& operator<<(std::ostream& out, const Fixed& fixed);
+// std::ostream& operator<<(std::ostream& out, const Fixed& fixed);
 
 #endif
