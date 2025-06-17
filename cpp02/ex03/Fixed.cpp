@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 10:31:43 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/19 10:31:51 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/17 10:32:06 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ Fixed::Fixed()
 Fixed::Fixed(const int n)
 {
 //	std::cout << "Int constructor called" << std::endl;
-	this->_fixedPointValue = n << _fractionalBits;
+	this->_fixedPointValue = n << this->_fractionalBits;
 }
 
 Fixed::Fixed(const float n)
 {
 //	std::cout << "Float constructor called" << std::endl;
-	this->_fixedPointValue = roundf(n * (1 << _fractionalBits));
+	this->_fixedPointValue = roundf(n * (1 << this->_fractionalBits));
 }
 
 Fixed::Fixed(const Fixed& other)
@@ -63,12 +63,12 @@ void	Fixed::setRawBits(int const raw)
 
 float	Fixed::toFloat() const
 {
-	return static_cast<float>(_fixedPointValue) / (1 << _fractionalBits);
+	return static_cast<float>(this->_fixedPointValue) / (1 << this->_fractionalBits);
 }
 
 int	Fixed::toInt() const
 {
-	return _fixedPointValue >> _fractionalBits;
+	return this->_fixedPointValue >> this->_fractionalBits;
 }
 
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
@@ -124,14 +124,14 @@ Fixed Fixed::operator-(const Fixed& other) const
 Fixed Fixed::operator*(const Fixed& other) const
 {
 	Fixed	result;
-	result.setRawBits((this->_fixedPointValue * other._fixedPointValue) >> _fractionalBits);
+	result.setRawBits((this->_fixedPointValue * other._fixedPointValue) >> this->_fractionalBits);
 	return result;
 }
 
 Fixed Fixed::operator/(const Fixed& other) const
 {
 	Fixed	result;
-	result.setRawBits((this->_fixedPointValue << _fractionalBits) / other._fixedPointValue);
+	result.setRawBits((this->_fixedPointValue << this->_fractionalBits) / other._fixedPointValue);
 	return result;
 }
 
@@ -163,22 +163,34 @@ Fixed Fixed::operator--(int)
 
 Fixed& Fixed::min(Fixed& a, Fixed& b)
 {
-	return (a < b) ? a : b;
+	if (a < b)
+		return a;
+	else
+		return b;
 }
 
 const Fixed& Fixed::min(const Fixed& a, const Fixed& b)
 {
-	return (a < b) ? a : b;
+	if (a < b)
+		return a;
+	else
+		return b;
 }
 
 Fixed& Fixed::max(Fixed& a, Fixed& b)
 {
-	return (a > b) ? a : b;
+	if (a > b)
+		return a;
+	else
+		return b;
 }
 
 const Fixed& Fixed::max(const Fixed& a, const Fixed& b)
 {
-	return (a > b) ? a : b;
+	if (a > b)
+		return a;
+	else
+		return b;
 }
 
 Fixed Fixed::abs() const

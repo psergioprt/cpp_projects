@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 10:31:21 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/19 10:31:29 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/17 11:50:19 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ bool	bsp( Point const a, Point const b, Point const c, Point const point)
 	Fixed area3 = area(a, b, point).abs();
 
 	std::cout << "Total: " << totalArea << "\n";
-std::cout << "A1: " << area1 << ", A2: " << area2 << ", A3: " << area3 << std::endl;
+	std::cout << "A1: " << area1 << ", A2: " << area2 << ", A3: " << area3 << std::endl;
 
 
 	//If any of the areas is zero, point is on edge or vertex

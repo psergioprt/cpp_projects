@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 10:33:11 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/19 10:33:21 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/17 11:41:38 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,20 @@ bool	bsp( Point const a, Point const b, Point const c, Point const point);
 
 int	main()
 {
-	Point	a(0, 0);
+	/*Point	a(0, 0);
 	Point	b(10, 0);
-	Point	c(0, 10);
-	Point inside(2, 2);
+	Point	c(0, 10);*/
+	Point	a (2, 0);
+	Point	b (8, 0);
+	Point	c (5, 8);
+	
+	Point inside(4, 4);
+	Point onEdge(5, 8);
+	Point outside(1, 5);
+
+	/*Point inside(2, 2);
 	Point onEdge(0, 5);
-	Point outside(10, 10);
+	Point outside(10, 10);*/
 
 	std::cout << "Inside? " << bsp(a, b, c, inside) << std::endl;   // true
 	std::cout << "On edge? " << bsp(a, b, c, onEdge) << std::endl;  // false

@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 10:32:25 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/19 10:32:29 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/17 11:18:31 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,22 @@ Point::Point(const Point& other): _x(other._x), _y(other._y)
 //	std::cout << "Copy constructor" << std::endl;
 }
 
-/*Point& Point::operator=(const Point& other)
+Point& Point::operator=(const Point& other)
 {
+	(void)other;
+	// cannot assign to const member (const _x and const _y)
+	// so this operator is intentionally left black
 	return *this;
-}*/
+}
 
 Fixed Point::getX() const
 {
-	return _x;
+	return this->_x;
 }
 
 Fixed Point::getY() const
 {
-	return _y;
+	return this->_y;
 }
 
 Point::~Point()

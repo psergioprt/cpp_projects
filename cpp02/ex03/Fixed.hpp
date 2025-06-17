@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 10:47:45 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/19 10:47:49 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/17 10:24:13 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Fixed
 		Fixed( const int n); // from int
 		Fixed( const float n); // from float
 		Fixed( const Fixed& other); // Copy constructor
-		Fixed& operator = (const Fixed& other); // Copy assignement operator
+		Fixed& operator=(const Fixed& other); // Copy assignement operator
 		~Fixed( void ); // Destructor
 				
 		int	getRawBits( void ) const;
@@ -48,10 +48,10 @@ class Fixed
 		Fixed	operator*(const Fixed& other) const;
 		Fixed	operator/(const Fixed& other) const;
 
-		Fixed& operator++(); // Pre-increment operator
-		Fixed& operator--(); // Pre-decrement operator
-		Fixed operator++(int); // Post-increment operator
-		Fixed operator--(int); // Post-decrement operator
+		Fixed&	operator++(); // Pre-increment operator
+		Fixed&	operator--(); // Pre-decrement operator
+		Fixed	operator++(int); // Post-increment operator
+		Fixed	operator--(int); // Post-decrement operator
 		
 		// Min functions
 		static Fixed& min(Fixed& a, Fixed& b);
@@ -62,9 +62,11 @@ class Fixed
 		static const Fixed& max(const Fixed& a, const Fixed& b);
 
 		Fixed abs() const;
+		// Operator<<overload
+		friend std::ostream& operator<<(std::ostream& out, const Fixed& fixed);
 };
 
 // operator<<overload
-std::ostream& operator<<(std::ostream& out, const Fixed& fixed);
+//std::ostream& operator<<(std::ostream& out, const Fixed& fixed);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 11:43:03 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/06/16 19:58:05 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/17 10:14:48 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Fixed
 		Fixed( const int n); // from int
 		Fixed( const float n); // from float
 		Fixed( const Fixed& other); // Copy constructor
-		Fixed& operator = (const Fixed& other); // Copy assignement operator
+		Fixed& operator=(const Fixed& other); // Copy assignement operator
 		~Fixed( void ); // Destructor
 				
 		int	getRawBits( void ) const;
@@ -60,9 +60,13 @@ class Fixed
 		// Max functions
 		static Fixed& max(Fixed& a, Fixed& b);
 		static const Fixed& max(const Fixed& a, const Fixed& b);
+
+		//operator<<overload
+		friend std::ostream& operator<<(std::ostream& out, const Fixed& Fixed);
+
 };
 
 // operator<<overload
-std::ostream& operator<<(std::ostream& out, const Fixed& fixed);
+//std::ostream& operator<<(std::ostream& out, const Fixed& fixed);
 
 #endif
