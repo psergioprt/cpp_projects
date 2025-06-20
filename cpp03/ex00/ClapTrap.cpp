@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 10:34:19 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/19 10:34:24 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/20 16:48:54 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ ClapTrap::ClapTrap() : _name("default"), _hitPoints(), _energyPoints(), _attackD
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << "ClapTrap " << this->_name << " has been created at " << this << " with " << this->_hitPoints << " hitPoints " << this->_energyPoints << " energyPoints and " << this->_attackDamage << " attackDamage!" << std::endl;
+	std::cout << "ClapTrap " << this->_name << " with " << this->_hitPoints << " hitPoints " << this->_energyPoints << " energyPoints and " << this->_attackDamage << " attackDamage!" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other)
@@ -29,7 +29,7 @@ ClapTrap::ClapTrap(const ClapTrap& other)
 	this->_hitPoints = other._hitPoints;
 	this->_energyPoints = other._energyPoints;
 	this->_attackDamage = other._attackDamage;
-	std::cout << "ClapTrap copy constructor called for " << this->_name << " at " << this << "!" << std::endl;
+	std::cout << "ClapTrap copy constructor called for " << this->_name << "!" << std::endl;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)
@@ -41,13 +41,13 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 		this->_energyPoints = other._energyPoints;
 		this->_attackDamage = other._attackDamage;
 	}
-	std::cout << "ClapTrap assignement operator called for " << this->_name << " at " << this << "!" << std::endl;
+	std::cout << "ClapTrap assignment operator called for " << this->_name << "!" << std::endl;
 	return *this;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "ClapTrap " << this->_name << " destructor called at " << this << "!" << std::endl;
+	std::cout << "ClapTrap " << this->_name << " destructor called!" << std::endl;
 }
 
 void	ClapTrap::attack(const std::string& target)

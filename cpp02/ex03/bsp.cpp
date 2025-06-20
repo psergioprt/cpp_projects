@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 10:31:21 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/06/17 15:13:45 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/18 09:51:13 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static Fixed area(Point const& p1, Point const& p2, Point const& p3)
 
 	Fixed result = term1 + term2 + term3;
 
-	return result / Fixed(2); // OR: Fixed(0.5f) * result;
+	return result / Fixed(2);
 }
 
 std::string	bsp( Point const a, Point const b, Point const c, Point const point)
