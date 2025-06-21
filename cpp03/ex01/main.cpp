@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 10:36:23 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/06/21 10:11:10 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/21 13:18:22 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	main()
 	ClapTrap	ct("Edison");
 	ScavTrap	st("Newton");
 	ScavTrap	st2("Tesla");
+	ScavTrap	st3("daVinci");
 	std::cout << std::endl;
 	
 	std::cout << YELLOW << "ATTACK 1 - CLAPTRAP" << RESET << std::endl;
@@ -60,8 +61,19 @@ int	main()
 	st2.beRepaired(90);
 	st2.guardGate();
 	std::cout << std::endl;
-	
-	std::cout << YELLOW << "TESTING COPY CONSTRUCTOR" << RESET << std::endl;
+
+	std::cout << YELLOW << "ATTACK 4 - SCAVTRAP" << RESET << std::endl;
+	st3.takeDamage(55);
+	for (int i = 0; i < 55; i++)
+	{
+		st3.beRepaired(1);
+	}
+	st3.takeDamage(100);
+	st3.takeDamage(1);
+	st3.guardGate();
+	std::cout << std::endl;
+
+	/*std::cout << YELLOW << "TESTING COPY CONSTRUCTOR" << RESET << std::endl;
 	ScavTrap stCopy(st);
 	ScavTrap st2Copy(st2);
 	std::cout << std::endl;
@@ -71,7 +83,7 @@ int	main()
 	stAssign = st;
 	ScavTrap st2Assign("Temp2");
 	st2Assign = st2;
-	std::cout << std::endl;
+	std::cout << std::endl;*/
 	
 	std::cout << YELLOW << "DESTRUCTION WILL HAPPEN IN REVERSE ORDER OF CREATION" << RESET << std::endl;
 	return 0;

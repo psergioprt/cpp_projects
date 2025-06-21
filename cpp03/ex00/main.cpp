@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 10:34:41 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/06/20 16:31:29 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/21 12:47:36 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,22 @@ int	main(void)
 	
 	std::cout << "third attack" << std::endl;
 	clap.attack("Lewis");
-	clap.takeDamage(10);
-	clap.beRepaired(2);
+	clap.takeDamage(156);
+	clap.beRepaired(1);
+	clap.beRepaired(1);
+	clap.beRepaired(1);
+	clap.beRepaired(236);
+	clap.beRepaired(1);
+	clap.beRepaired(1);
 	std::cout << "---------------------------" << std::endl;
 
-	std::cout << "Testing copy constructor\n";
+/*	std::cout << "Testing copy constructor\n";
 	ClapTrap cpCopy(clap);
 	std::cout << std::endl;
 	std::cout << "Testing assignment operator\n";
 	ClapTrap cpAssigned("Temp");
 	cpAssigned = clap;
-	std::cout << std::endl;
+	std::cout << std::endl;*/
 	
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 10:55:16 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/06/21 09:05:41 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/21 13:23:26 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class ClapTrap
 		unsigned int	_hitPoints;
 		unsigned int	_energyPoints;
 		unsigned int	_attackDamage;
-		unsigned int	_maxHitPoints; //althought not required, I added this to create a top boundary
+	//	unsigned int	_maxHitPoints; //althought not required, I added this to create a top boundary
 	public:
 		ClapTrap();
 		ClapTrap( std::string name);
