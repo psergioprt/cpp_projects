@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 10:35:24 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/19 10:35:35 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/21 09:06:17 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ ClapTrap::ClapTrap() : _name("default"), _hitPoints(), _energyPoints(), _attackD
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << "ClapTrap " << this->_name << " has been created at " << this << " with " << this->_hitPoints << " hitPoints " << this->_energyPoints << " energyPoints and " << this->_attackDamage << " attackDamage!" << std::endl;
+	this->_maxHitPoints = 10; //added this just for better dealing with top boundaries
+	std::cout << "ClapTrap " << this->_name << " has been created with " << this->_hitPoints << " hitPoints " << this->_energyPoints << " energyPoints and " << this->_attackDamage << " attackDamage!" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other)
@@ -29,7 +30,7 @@ ClapTrap::ClapTrap(const ClapTrap& other)
 	this->_hitPoints = other._hitPoints;
 	this->_energyPoints = other._energyPoints;
 	this->_attackDamage = other._attackDamage;
-	std::cout << "ClapTrap copy constructor called for " << this->_name << " at " << this << "!" << std::endl;
+	std::cout << "ClapTrap copy constructor called for " << this->_name << "!" << std::endl;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)
@@ -41,13 +42,13 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 		this->_energyPoints = other._energyPoints;
 		this->_attackDamage = other._attackDamage;
 	}
-	std::cout << "ClapTrap assignement operator called for " << this->_name << " at " << this << "!" << std::endl;
+	std::cout << "ClapTrap assignment operator called for " << this->_name << "!" << std::endl;
 	return *this;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "ClapTrap " << this->_name << " destructor called at " << this << "!" << std::endl;
+	std::cout << "ClapTrap " << this->_name << " destructor called!" << std::endl;
 }
 
 void	ClapTrap::attack(const std::string& target)
@@ -77,7 +78,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	if (this->_hitPoints == 10)
+	if (this->_hitPoints == this->_maxHitPoints)
 	{
 		std::cout << "ClapTrap " << this->_name << " can't be more repaired!" << std::endl;
 		return;
@@ -87,8 +88,8 @@ void	ClapTrap::beRepaired(unsigned int amount)
 		std::cout << "ClapTrap " << this->_name << " has no energy left to repair!" << std::endl;
 		return;
 	}
-	if (this->_hitPoints + amount > 10)
-		this->_hitPoints = 10;
+	if (this->_hitPoints + amount > this->_maxHitPoints)
+		this->_hitPoints = this->_maxHitPoints;
 	else
 		this->_hitPoints += amount;
 	this->_energyPoints--;
