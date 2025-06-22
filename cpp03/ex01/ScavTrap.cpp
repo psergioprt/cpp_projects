@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 10:35:58 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/06/21 13:23:41 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/22 08:36:13 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,15 @@
 
 #define RESET   "\033[0m"
 #define BLUE    "\033[34m"
+
+ScavTrap::ScavTrap() : ClapTrap("default")
+{
+	this->_hitPoints = 100;
+	this->_energyPoints = 50;
+	this->_attackDamage = 20;
+	//this->_maxHitPoints = 100; //just added this for better dealing with top boundaries!
+	std::cout << "Default ScavTrap created" << std::endl;
+}
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {

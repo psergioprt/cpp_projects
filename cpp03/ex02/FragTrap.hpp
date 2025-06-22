@@ -6,15 +6,15 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 10:56:27 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/19 10:56:30 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/22 20:56:22 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRAGTRAP_HPP
 #define FRAGTRAP_HPP
 
-#include <string.h>
 #include "ClapTrap.hpp"
+#include <string.h>
 
 class	FragTrap : public ClapTrap
 {

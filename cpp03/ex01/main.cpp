@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 10:36:23 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/06/21 13:18:22 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/22 09:08:29 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,7 @@ int	main()
 	std::cout << YELLOW << "ATTACK 4 - SCAVTRAP" << RESET << std::endl;
 	st3.takeDamage(55);
 	for (int i = 0; i < 55; i++)
-	{
 		st3.beRepaired(1);
-	}
 	st3.takeDamage(100);
 	st3.takeDamage(1);
 	st3.guardGate();

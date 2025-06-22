@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 10:35:24 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/06/21 13:24:42 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/22 21:51:32 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ ClapTrap::ClapTrap() : _name("default"), _hitPoints(), _energyPoints(), _attackD
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	//this->_maxHitPoints = 10; //added this just for better dealing with top boundaries
+//	this->_maxHitPoints = 10; //added this just for better dealing with top boundaries
 	std::cout << "ClapTrap " << this->_name << " has been created with " << this->_hitPoints << " hit points " << this->_energyPoints << " energy points and " << this->_attackDamage << " attack damage!" << std::endl;
 }
 
