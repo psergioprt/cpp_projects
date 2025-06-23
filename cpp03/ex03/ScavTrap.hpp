@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 10:55:35 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/06/23 07:32:00 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/23 11:23:16 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,8 @@ class ScavTrap : virtual public ClapTrap
 
 		void	attack(const std::string& target);
 		void	guardGate( void );
+
+	protected:
+		static int getDefaultEnergyPoints();
 };
 #endif

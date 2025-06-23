@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 10:58:11 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/06/23 08:33:24 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/23 12:24:34 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,18 @@
 
 DiamondTrap::DiamondTrap() : ClapTrap("default_clap_name"), ScavTrap(), FragTrap(), _name("default")
 {
-	this->_hitPoints = FragTrap::_hitPoints;
-	this->_energyPoints = ScavTrap::_energyPoints;
-	this->_attackDamage = FragTrap::_attackDamage;
+	this->_hitPoints = FragTrap::getDefaultHitPoints();
+	this->_energyPoints = ScavTrap::getDefaultEnergyPoints();
+	this->_attackDamage = FragTrap::getDefaultAttackDamage();
 //      this->_maxHitPoints = FragTrap::_maxHitPoints; //Just added this to deal with top boundary of initialized hit points
 	std::cout << MAGENTA << "Default DiamondTrap has been created!" << RESET << std::endl;
 }
 
 DiamondTrap::DiamondTrap(const std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name), _name(name)
 {
-	this->_hitPoints = FragTrap::_hitPoints;
-	this->_energyPoints = ScavTrap::_energyPoints;
-	this->_attackDamage = FragTrap::_attackDamage;
+	ClapTrap::_hitPoints = FragTrap::getDefaultHitPoints();
+	ClapTrap::_energyPoints = ScavTrap::getDefaultEnergyPoints();
+	ClapTrap::_attackDamage = FragTrap::getDefaultAttackDamage();
 //      this->_maxHitPoints = FragTrap::_maxHitPoints; //Just added this to deal with top boundary of initialized hit points
 	std::cout << MAGENTA << "DiamondTrap " << this->_name << " has been created with " << this->_hitPoints << " hit points, " << this->_energyPoints << " energy points and " << this->_attackDamage << " attack damage" << RESET << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 10:38:36 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/06/22 21:57:21 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/23 15:43:49 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main()
 	std::cout << std::endl;
 	
 	std::cout << YELLOW << "ATTACK 1 - CLAPTRAP" << RESET << std::endl;
-	ct.attack("Tomas");
+	ct.attack("Thomas");
 	ct.takeDamage(5);
 	ct.takeDamage(2);
 	ct.takeDamage(5);

@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 10:35:58 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/06/22 08:36:13 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/23 14:53:49 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,13 @@ void	ScavTrap::attack(const std::string& target)
 {
 	if (this->_hitPoints == 0)
 	{
-		std::cout << BLUE << "ScavTrap " << this->_name << " can't attack because it's out of hit points!" << RESET << std::endl;
+		std::cout << BLUE << "ScavTrap " << this->_name << " can't attack because it's out of hit points! Current hit points: " << this->_hitPoints  << RESET << std::endl;
 		return;
 	}
 	if (this->_energyPoints == 0)
 	{
-		std::cout << BLUE << "ScavTrap " << this->_name << " is out of energy points so can't attack!" << RESET << std::endl;
+		std::cout << BLUE << "ScavTrap " << this->_name << " is out of energy points so can't attack! Current energy points: " << this->_energyPoints << RESET << std::endl;
+		return;
 	}
 	this->_energyPoints--;
 	std::cout << BLUE << "ScavTrap " << this->_name << " fiercely attacks " << target << ", causing " << this->_attackDamage << " attack damage! (Energy left: " << this->_energyPoints << ")" << RESET << std::endl;
