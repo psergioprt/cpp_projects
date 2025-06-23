@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 10:38:36 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/06/23 15:43:49 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/23 19:35:04 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main()
 	ClapTrap	ct("Edison");
 	ScavTrap	st("Newton");
 	ScavTrap	st2("Tesla");
-	ScavTrap	st3("daVinci");
+	ScavTrap	st3("da Vinci");
 	FragTrap	ft1("Einstein");
 	FragTrap	ft2("Gutenberg");
 	std::cout << std::endl;

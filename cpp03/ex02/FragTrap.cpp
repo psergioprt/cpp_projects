@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 10:37:54 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/06/22 21:52:10 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/23 19:42:52 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ FragTrap::FragTrap() : ClapTrap("default")
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
-	_hitPoints = 100;
-	_energyPoints = 100;
-	_attackDamage = 30;
+	this->_hitPoints = 100;
+	this->_energyPoints = 100;
+	this->_attackDamage = 30;
 //	this->_maxHitPoints = 100; //Just added this to deal with top boundary of initialized hit points
 	std::cout << CYAN << "FragTrap " << this->_name << " has been created with " << this->_hitPoints << " hit points, " << this->_energyPoints << " energy points and " << this->_attackDamage << " attack damage" << RESET << std::endl;
 }
@@ -55,7 +55,7 @@ FragTrap& FragTrap::operator=(const FragTrap& other)
 void	FragTrap::highFivesGuys()
 {
 	if (this->_hitPoints > 0)
-		std::cout << "FragTrap " << this->_name << " enthusiastically high fives you guys!" << std::endl;
+		std::cout << CYAN << "FragTrap " << this->_name << " enthusiastically high fives you guys!" << RESET << std::endl;
 	else
-		std::cout << "Even lying on the floor, FragTrap " << this->_name << " raises a hand to high five you guys!" << std::endl;
+		std::cout << CYAN << "Even lying on the floor, FragTrap " << this->_name << " raises a hand to high five you guys!" << RESET << std::endl;
 }

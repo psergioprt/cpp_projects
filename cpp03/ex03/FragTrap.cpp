@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 10:37:54 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/06/23 11:57:44 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/23 19:38:54 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ FragTrap& FragTrap::operator=(const FragTrap& other)
 void	FragTrap::highFivesGuys()
 {
 	if (this->_hitPoints > 0)
-		std::cout << "FragTrap " << this->_name << " enthusiastically high fives you guys!" << std::endl;
+		std::cout << CYAN << "FragTrap " << this->_name << " enthusiastically high fives you guys!" << RESET << std::endl;
 	else
-		std::cout << "Even lying on the floor, FragTrap " << this->_name << " raises a hand to high five you guys!" << std::endl;
+		std::cout << CYAN << "Even lying on the floor, FragTrap " << this->_name << " raises a hand to high five you guys!" << RESET << std::endl;
 }
 
 int	FragTrap::getDefaultHitPoints()

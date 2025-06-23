@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 10:59:19 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/06/23 15:54:25 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/23 19:23:17 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int	main()
 	dt.beRepaired(10);
 	dt.beRepaired(30);
 	dt.whoAmI();
+	dt.beRepaired(62);
+	dt.beRepaired(1);
 	std::cout << std::endl;
 
 	std::cout << YELLOW << "ATTACK 2 - DIAMONDTRAP" << RESET << std::endl;
