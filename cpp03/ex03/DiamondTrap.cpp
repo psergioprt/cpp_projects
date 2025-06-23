@@ -6,56 +6,63 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 10:58:11 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/19 10:58:14 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/23 08:33:24 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "DiamondTrap.hpp"
 
+#define RESET "\033[0m"
+#define MAGENTA "\033[95m"
+
 DiamondTrap::DiamondTrap() : ClapTrap("default_clap_name"), ScavTrap(), FragTrap(), _name("default")
 {
-	_hitPoints = FragTrap::_hitPoints;
-	_energyPoints = ScavTrap::_energyPoints;
-	_attackDamage = FragTrap::_attackDamage;
-	std::cout << "Default DiamondTrap constructed at " << this << std::endl;
+	this->_hitPoints = FragTrap::_hitPoints;
+	this->_energyPoints = ScavTrap::_energyPoints;
+	this->_attackDamage = FragTrap::_attackDamage;
+//      this->_maxHitPoints = FragTrap::_maxHitPoints; //Just added this to deal with top boundary of initialized hit points
+	std::cout << MAGENTA << "Default DiamondTrap has been created!" << RESET << std::endl;
 }
 
 DiamondTrap::DiamondTrap(const std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name), _name(name)
 {
-	_hitPoints = FragTrap::_hitPoints;
-	_energyPoints = ScavTrap::_energyPoints;
-	_attackDamage = FragTrap::_attackDamage;
-	std::cout << "DiamondTrap " << _name << " has been created at " << this << " with " << _hitPoints << " hitPoints, " << _energyPoints << " energyPoints and " << _attackDamage << " attackDamage." << std::endl;
+	this->_hitPoints = FragTrap::_hitPoints;
+	this->_energyPoints = ScavTrap::_energyPoints;
+	this->_attackDamage = FragTrap::_attackDamage;
+//      this->_maxHitPoints = FragTrap::_maxHitPoints; //Just added this to deal with top boundary of initialized hit points
+	std::cout << MAGENTA << "DiamondTrap " << this->_name << " has been created with " << this->_hitPoints << " hit points, " << this->_energyPoints << " energy points and " << this->_attackDamage << " attack damage" << RESET << std::endl;
 }
 
 DiamondTrap::~DiamondTrap()
 {
-	std::cout << "DiamondTrap " << _name << " has been destroyed at " << this << "!" << std::endl;
+	std::cout << MAGENTA << "DiamondTrap " << _name << " has been destroyed!" << RESET << std::endl;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& other) : ClapTrap(other), ScavTrap(other), FragTrap(other), _name(other._name)
 {
-	std::cout << "DiamondTrap copy constructor called for " << _name << ", at " << this << std::endl;
-	_hitPoints = other._hitPoints;
-	_energyPoints = other._energyPoints;
-	_attackDamage = other._attackDamage;
+	std::cout << MAGENTA << "DiamondTrap copy constructor called for " << other._name << "!" << RESET << std::endl;
+	this->_hitPoints = other._hitPoints;
+	this->_energyPoints = other._energyPoints;
+	this->_attackDamage = other._attackDamage;
+//	this->_maxHitPoints = other._maxHitPoints;
 }
 
 DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other)
 {
-	std::cout << "DiamondTrap assignment operator called from " << &other << " to " << this << "!" << std::endl;
+	std::cout << MAGENTA << "DiamondTrap assignment operator called for " << other._name << "!" << RESET << std::endl;
 	if (this != &other)
 	{
-		_name = other._name;
-		_hitPoints = other._hitPoints;
-		_energyPoints = other._energyPoints;
-		_attackDamage = other._attackDamage;
+		this->_name = other._name;
+		this->_hitPoints = other._hitPoints;
+		this->_energyPoints = other._energyPoints;
+		this->_attackDamage = other._attackDamage;
+//		this->_maxHitPoints = other._maxHitPoints;
 	}
 	return *this;
 }
 
 void	DiamondTrap::whoAmI()
 {
-	std::cout << "I am DiamondTrap \"" << _name << "\" and my ClapTrap name is \"" << ClapTrap::_name << "\"" << std::endl;
+	std::cout << MAGENTA << "I am DiamondTrap \"" << this->_name << "\" and my ClapTrap name is \"" << this->ClapTrap::_name << "\"" << RESET << std::endl;
 }

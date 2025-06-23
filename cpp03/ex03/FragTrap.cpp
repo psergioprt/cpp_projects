@@ -5,19 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 10:58:46 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/19 10:58:48 by pauldos-         ###   ########.fr       */
+/*   Created: 2025/05/19 10:37:54 by pauldos-          #+#    #+#             */
+/*   Updated: 2025/06/22 21:52:10 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "FragTrap.hpp"
 
+#define RESET "\033[0m"
+#define CYAN "\033[96m"
+
 FragTrap::FragTrap() : ClapTrap("default")
 {
-	_hitPoints = 100;
-	_energyPoints = 100;
-	_attackDamage = 30;
+	this->_hitPoints = 100;
+	this->_energyPoints = 100;
+	this->_attackDamage = 30;
+//	this->_maxHitPoints = 100; //Just added this to deal with top boundary of initialized hit points
 	std::cout << "Default FragTrap has been created!" << std::endl;
 }
 
@@ -26,30 +30,32 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 	_hitPoints = 100;
 	_energyPoints = 100;
 	_attackDamage = 30;
-	std::cout << "FragTrap " << _name << " has been created at " << this << " with " << _hitPoints << " hit points, " << _energyPoints << " energy points, " << _attackDamage << " attack damage!" << std::endl;
+//	this->_maxHitPoints = 100; //Just added this to deal with top boundary of initialized hit points
+	std::cout << CYAN << "FragTrap " << this->_name << " has been created with " << this->_hitPoints << " hit points, " << this->_energyPoints << " energy points and " << this->_attackDamage << " attack damage" << RESET << std::endl;
 }
 
 FragTrap::~FragTrap()
 {
-	std::cout << "FragTrap " << _name << " has been destroyed at " << this << "!" << std::endl;
+	std::cout << CYAN << "FragTrap " << this->_name << " has been destroyed!" << RESET << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other)
 {
-	std::cout << "FragTrap copy constructor called for " << other._name << " at " << this << "!" << std::endl;
+	std::cout << CYAN << "FragTrap copy constructor called for " << other._name << "!" << RESET << std::endl;
 }
 
 FragTrap& FragTrap::operator=(const FragTrap& other)
 {
-	std::cout << "FragTrap assignment operator called for " << other._name << " at " << this << "!" << std::endl;
+	std::cout << CYAN << "FragTrap assignment operator called for " << other._name << "!" << RESET << std::endl;
 	if (this != &other)
-	{
 		ClapTrap::operator=(other);		
-	}
 	return *this;
 }
 
 void	FragTrap::highFivesGuys()
 {
-	std::cout << "FragTrap " << _name << " high fives you guys!" << std::endl;
+	if (this->_hitPoints > 0)
+		std::cout << "FragTrap " << this->_name << " enthusiastically high fives you guys!" << std::endl;
+	else
+		std::cout << "Even lying on the floor, FragTrap " << this->_name << " raises a hand to high five you guys!" << std::endl;
 }

@@ -6,13 +6,14 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 10:59:19 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/19 10:59:27 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/23 09:19:26 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "DiamondTrap.hpp"
 
+#define RESET "\031"
 int	main()
 {
 	DiamondTrap dt("DaVinci");
