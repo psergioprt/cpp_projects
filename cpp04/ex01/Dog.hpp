@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 11:07:20 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/20 09:57:45 by pauldos-         ###   ########.fr       */
+/*   Created: 2025/05/19 11:13:36 by pauldos-          #+#    #+#             */
+/*   Updated: 2025/06/24 11:26:35 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,15 @@
 
 #include <string>
 #include "Animal.hpp"
-#include "Brain.hpp"
 
 class Dog : public Animal
 {
-	private:
-		Brain* _brain;
 	public:
 		Dog( void );
-		~Dog( void );
+		Dog( const Dog &other );
+		Dog &operator=( const Dog &other );
 
-		Dog(const Dog& other);
-		Dog& operator=(const Dog& other);
-
-		void	makeSound() const;
-
-		void		setIdea(int index, const std::string& idea);
-		std::string	getIdea(int index) const;
+		virtual ~Dog( void );
+		virtual void	makeSound() const;
 };
 #endif

@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 11:13:36 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/06/24 11:26:35 by pauldos-         ###   ########.fr       */
+/*   Created: 2025/05/19 11:08:22 by pauldos-          #+#    #+#             */
+/*   Updated: 2025/05/19 11:08:24 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#include <iostream>
+#include "WrongCat.hpp"
 
-#include <string>
-#include "Animal.hpp"
-
-class Dog : public Animal
+WrongCat::WrongCat()
 {
-	public:
-		Dog( void );
-		Dog( const Dog &other );
-		Dog &operator=( const Dog &other );
+	this->type = "WrongCat";
+	std::cout << "WrongCat constructor created!" << std::endl;
+}
 
-		virtual ~Dog( void );
-		virtual void	makeSound() const;
-};
-#endif
+WrongCat::~WrongCat()
+{
+	std::cout << "WrongCat destroyed!" << std::endl;
+}
+
+void WrongCat::makeSound() const
+{
+	std::cout << "miauuuuu" << std::endl;
+}

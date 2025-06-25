@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 11:13:17 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/19 11:13:19 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/24 11:36:28 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ class Cat : public Animal
 {
 	public:
 		Cat( void );
-		~Cat( void );
+		Cat( const Cat &other);
+		Cat &operator=( const Cat &other);
+		virtual ~Cat( void );
 		
-		void makeSound() const;
+		virtual void makeSound() const;
 };
 #endif
