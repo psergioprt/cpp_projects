@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 11:12:56 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/06/23 20:44:59 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/27 21:33:30 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Animal
 {
 	protected:
-		std::string	type;
+		std::string	_type;
 	public:
 		Animal( void );
 		Animal( const Animal &other);

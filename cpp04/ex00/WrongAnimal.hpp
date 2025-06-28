@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 11:14:03 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/06/24 16:28:50 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/27 21:30:13 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class WrongAnimal
 {
 	protected:
-		std::string type;
+		std::string _type;
 	public:
 		WrongAnimal( void );
 		WrongAnimal( const WrongAnimal& other);

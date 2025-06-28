@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 11:13:53 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/06/24 15:54:38 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/27 21:32:27 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 #define RESET "\033[0m"
 #define WHITE "\033[37m"
 
-WrongAnimal::WrongAnimal() : type("wrongAnimal")
+WrongAnimal::WrongAnimal() : _type("wrongAnimal")
 {
 	std::cout << WHITE << "wrongAnimal constructor created!" << RESET << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal& other) : type(other.type)
+WrongAnimal::WrongAnimal(const WrongAnimal& other) : _type(other._type)
 {
 	std::cout << WHITE << "wrongAnimal copy constructor" << RESET << std::endl;
 }
@@ -29,7 +29,7 @@ WrongAnimal::WrongAnimal(const WrongAnimal& other) : type(other.type)
 WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other)
 {
 	if (this != &other)
-		this->type = other.type;
+		this->_type = other._type;
 	std::cout << WHITE << "wrongAnimal assignment operator" << RESET << std::endl;
 	return *this;
 }
@@ -41,7 +41,7 @@ WrongAnimal::~WrongAnimal()
 
 std::string WrongAnimal::getType() const
 {
-	return this->type;
+	return this->_type;
 }
 
 void	WrongAnimal::makeSound() const
