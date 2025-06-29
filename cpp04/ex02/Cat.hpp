@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 11:02:16 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/20 10:29:55 by pauldos-         ###   ########.fr       */
+/*   Created: 2025/05/19 11:13:17 by pauldos-          #+#    #+#             */
+/*   Updated: 2025/06/29 01:21:24 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,22 @@
 #define CAT_HPP
 
 #include <string>
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
-class Cat : public Animal
+class Cat : public AAnimal
 {
 	private:
 		Brain* _brain;
 	public:
 		Cat( void );
-		~Cat( void );
-
-		Cat(const Cat& other);
-		Cat& operator=(const Cat& other);
+		Cat( const Cat &other);
+		Cat &operator=( const Cat &other);
+		virtual ~Cat( void );
 		
-		void makeSound() const;
+		virtual void makeSound() const;
 
-		void		setIdea(int index, const std::string&idea);
+		void		setIdea(int index, const std::string& idea);
 		std::string	getIdea(int index) const;
-
 };
 #endif

@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 11:13:27 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/06/27 22:06:47 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/28 13:04:12 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,13 @@ Dog::Dog(const Dog &other) : Animal(other)
 
 Dog& Dog::operator=(const Dog& other)
 {
+	std::cout << GREEN << "Dog assignment operator" << RESET << std::endl;
 	if (this != &other)
 	{
+		delete this->_brain;
 		this->_type = other._type;
-		*this->_brain = *other._brain;
+		this->_brain = new Brain(*other._brain);
 	}
-	std::cout << GREEN << "Dog assignment operator" << RESET << std::endl;
 	return *this;
 }
 

@@ -5,56 +5,63 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 11:02:06 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/20 10:31:34 by pauldos-         ###   ########.fr       */
+/*   Created: 2025/05/19 11:13:07 by pauldos-          #+#    #+#             */
+/*   Updated: 2025/06/29 01:06:56 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
 #include <iostream>
+#include "Cat.hpp"
 
-Cat::Cat() : _brain(new Brain())
+#define RESET "\033[0m"
+#define CYAN "\033[96m"
+
+Cat::Cat() : AAnimal()
 {
-	this->type = "Cat";
-	std::cout << "Cat constructor created!" << std::endl;
+	this->_type = "Cat";
+	this->_brain = new Brain;
+	std::cout << CYAN << "Cat default constructor created" << RESET << std::endl;
+}
+
+Cat::Cat(const Cat &other) : AAnimal(other)
+{
+	this->_type = other._type;
+	this->_brain = new Brain(*other._brain);
+	std::cout << CYAN << "Cat copy constructor" << RESET << std::endl;
+}
+
+Cat& Cat::operator=(const Cat &other)
+{
+	std::cout << CYAN << "Cat assignment operator" << RESET << std::endl;
+	if (this != &other)
+	{
+		AAnimal::operator=(other);
+		delete this->_brain;
+		this->_brain = new Brain(*other._brain);
+	}
+	return *this;
 }
 
 Cat::~Cat()
 {
-	delete _brain;
-	std::cout << "Cat destroyed!" << std::endl;
+	delete this->_brain;
+	std::cout << CYAN << "Cat destructor called" << RESET << std::endl;
 }
 
-Cat::Cat(const Cat& other): Animal(other), _brain(new Brain(*other._brain))
+void Cat::makeSound() const
 {
-	type = other.type;
-	std::cout << "Cat copy-constructor called!" << std::endl;
-}
-
-Cat& Cat::operator=(const Cat& other)
-{
-	std::cout << "Cat copy-assignment operator called!" << std::endl;
-	if (this != &other)
-	{
-		Animal::operator=(other); // copy base part
-		delete _brain;
-		_brain = new Brain(*other._brain); // deep copy
-		type  = other.type;
-    }
-	return *this;
-}
-
-void	Cat::makeSound() const
-{
-	std::cout << "miauuuuu" << std::endl;
+	std::cout << CYAN << "Meowww" << RESET << std::endl;
 }
 
 void	Cat::setIdea(int index, const std::string& idea)
 {
-	_brain->setIdea(index, idea);
+	if (this->_brain)
+		this->_brain->setIdea(index, idea);
 }
 
-std::string Cat::getIdea(int index) const
+std::string	Cat::getIdea(int index) const
 {
-	return _brain->getIdea(index);
+	if (this->_brain)
+		return this->_brain->getIdea(index);
+	return "";
 }

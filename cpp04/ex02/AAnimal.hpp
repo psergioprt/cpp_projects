@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AAnimal.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 11:01:47 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/05/19 11:01:48 by pauldos-         ###   ########.fr       */
+/*   Created: 2025/05/19 11:12:56 by pauldos-          #+#    #+#             */
+/*   Updated: 2025/06/29 01:20:01 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Animal.hpp"
+#ifndef AANIMAL_HPP
+#define AANIMAL_HPP
 
-Animal::Animal()
-{
-	std::cout << "Animal constructor created!" << std::endl;
-}
+#include <string>
 
-Animal::~Animal()
+class AAnimal
 {
-	std::cout << "Animal destroyed!" << std::endl;
-}
+	protected:
+		std::string	_type;
+	public:
+		AAnimal( void );
+		AAnimal( const AAnimal &other);
+		AAnimal& operator=(const AAnimal &other);
 
-std::string	Animal::getType() const
-{
-	return this->type;
-}
-
-void	Animal::makeSound() const
-{
-	std::cout << "* generic animal sound *" << std::endl;
-}
+		virtual ~AAnimal( void );
+		std::string getType() const;
+		virtual void	makeSound() const = 0;
+};
+#endif

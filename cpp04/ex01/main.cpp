@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 09:20:05 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/06/28 12:24:50 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/29 01:47:13 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,15 @@
 
 int main()
 {
+	std::cout << std::endl;
+	std::cout << BGBLUE YELLOW << "*** TEST FOR ex01(non abstract)/ex02(abstract) ***" << RESET <<std::endl;
+	std::cout << BGBLUE YELLOW << "*** It will NOT compile at ex02 ***" << RESET <<std::endl;
+	std::cout << std::endl;
+	Animal a; //Cannot instantiate abstract class
+	Animal* b = new Animal(); //Compiler error
+	delete b; //for ex01
+
+
 	std::cout << std::endl;
 	std::cout << BGBLUE YELLOW << "*** Creating 100 animal objects ***" << RESET <<std::endl;
 	std::cout << std::endl;

@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 11:13:07 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/06/27 21:47:38 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/28 13:00:15 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,13 @@ Cat::Cat(const Cat &other) : Animal(other)
 
 Cat& Cat::operator=(const Cat &other)
 {
+	std::cout << CYAN << "Cat assignment operator" << RESET << std::endl;
 	if (this != &other)
 	{
+		delete this->_brain;
 		this->_type = other._type;
-		*this->_brain = *other._brain;
+		this->_brain = new Brain(*other._brain);
 	}
-	std::cout << CYAN << "Cat assignment operator" << RESET << std::endl;
 	return *this;
 }
 
