@@ -6,7 +6,7 @@
 /*   By: pauldos- <pauldos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 10:03:22 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/06/30 11:13:34 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/30 21:06:52 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,13 @@
 class Character : public ICharacter
 {
 	private:
+		void	storeOnFloor(AMateria * m);
 		std::string 	_name;
-		AMateria* _inventory[4];
+		AMateria* 	_inventory[4];
+		AMateria* 	_floor[4];
+		int		_indexFloor;
+
+		Character();
 	public:
 		Character(std::string const & name);
 		Character(const Character& other);

@@ -6,17 +6,18 @@
 /*   By: pauldos- <pauldos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 09:56:41 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/06/29 13:09:39 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/30 15:17:21 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "ICharacter.hpp"
+#include "AMateria.hpp"
 
 #define RESET "\033[0m"
 #define BLUE "\033[34m"
 
-AMateria::AMateria(std::string const &type) : _type("Amateria")
+AMateria::AMateria(std::string const &type) : _type(type)
 {
 	std::cout << BLUE << "AMateria constructor called" << RESET << std::endl;
 }
@@ -40,7 +41,7 @@ AMateria& AMateria::operator=(const AMateria& other)
 	return *this;
 }
 
-std::string const AMateria::getType() const
+std::string const & AMateria::getType() const
 {
 	return this->_type;
 }

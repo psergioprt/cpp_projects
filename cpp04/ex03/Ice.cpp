@@ -6,7 +6,7 @@
 /*   By: pauldos- <pauldos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 13:10:21 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/06/30 00:11:40 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/30 15:38:40 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,9 @@
 #define RESET "\033[0m"
 #define BBLUE "\033[94m"
 
-Ice::Ice() : AMateria()
+Ice::Ice() : AMateria("ice")
 {
 	std::cout << BBLUE << "Ice default constructor called" << RESET << std::endl;
-	this->_type = "ice";
 }
 
 Ice::~Ice()
@@ -29,17 +28,16 @@ Ice::~Ice()
 	std::cout << BBLUE << "Ice destructor called" << RESET << std::endl;
 }
 
-Ice::Ice(const Ice& other)
+Ice::Ice(const Ice& other) : AMateria(other)
 {
 	std::cout << BBLUE << "Ice copy constructor" << RESET << std::endl;
-	this->_type = other._type;
 }
 
 Ice& Ice::operator=(const Ice& other)
 {
 	std::cout << BBLUE << "Ice copy assignment operator" << RESET << std::endl;
 	if (this != &other)
-		this->_type = other._type;
+		AMateria::operator=(other);
 	return *this;
 }
 

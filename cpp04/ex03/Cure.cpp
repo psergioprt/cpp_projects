@@ -6,21 +6,21 @@
 /*   By: pauldos- <pauldos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 09:08:21 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/06/30 10:06:36 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/30 15:36:14 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "AMateria.hpp"
 #include "ICharacter.hpp"
+#include "Cure.hpp"
 
 #define RESET "\033[0m"
 #define MAGENTA "\033[35m"
 
-Cure::Cure() : AMateria()
+Cure::Cure() : AMateria("cure")
 {
 	std::cout << MAGENTA << "Cure default constructor called" << RESET << std::endl;
-	this->_type = "cure";
 }
 
 Cure::~Cure()
@@ -28,17 +28,16 @@ Cure::~Cure()
 	std::cout << MAGENTA << "Cure destructor called" << RESET << std::endl;
 }
 
-Cure::Cure(const Cure& other)
+Cure::Cure(const Cure& other) : AMateria(other)
 {
 	std::cout << MAGENTA << "Cure copy constructor" << RESET << std::endl;
-	this->_type = other._type;
 }
 
 Cure& Cure::operator=(const Cure& other)
 {
 	std::cout << MAGENTA << "Cure copy assignment operator" << RESET << std::endl;
 	if (this != &other)
-		this->_type = other._type;
+		AMateria::operator=(other);
 	return *this;
 }
 

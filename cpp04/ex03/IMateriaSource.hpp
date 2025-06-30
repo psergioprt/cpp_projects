@@ -6,7 +6,7 @@
 /*   By: pauldos- <pauldos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 12:29:34 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/06/30 12:37:59 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/06/30 15:13:45 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define IMATERIASOURCE_HPP
 
 #include <string>
-#include <AMateria.hpp>
+#include "AMateria.hpp"
 
 class IMateriaSource
 {
