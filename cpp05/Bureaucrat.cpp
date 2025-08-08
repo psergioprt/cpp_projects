@@ -6,27 +6,29 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 15:31:31 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/08/08 16:03:42 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/08/08 17:13:57 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureucrat.hpp"
+#include "Bureaucrat.hpp"
 
-Burocrat::Bureaucrat() : _name(""), _grade(0){}
+Bureaucrat::Bureaucrat() : _name("default"), _grade(150){}
 
-Bureaucrat(const std::string& name)_name(name){}
-
-Bureaucrat(const bureaucrat& other)
+Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name)
 {
-	this->_name = other._name;
-	this->_grade = other._grade;
+	if (grade < 1)
+		throw GradeTooHighException();
+	else if (grade > 150)
+		throw GradeTooLowException();
+	_grade = grade;
 }
+
+Bureaucrat::Bureaucrat(const bureaucrat& other) : _name(other._name), _grade(other.grade){}
 
 Bureaucrat& operator=(const bureaucrat& other)
 {
 	if (this != &other)
 	{
-		this->_name = other._name;
 		this->_grade = other._grade;
 	}
 	return *this;
@@ -34,34 +36,23 @@ Bureaucrat& operator=(const bureaucrat& other)
 
 ~Bureaucrat(){}
 
-std::string getName() const
-{
-	return this->_name;
-}
+const std::string getName() const;
+		int getGrade() const;
 
-int getGrade() const
-{
-	return this->_grade;
-}
+		void incrementGrade();
+		void decrementGrade();
 
-void setGrade(int grade)
-{
-	if (grade > 0 && grade <= 150)
-	{
-		try
+		class GradeTooHighException : public std::exception
 		{
-
-		}
-		catch (std::exception & e)
+			public:
+				const char * what() const no except override;
+		};
+		class GradeTooLowException : public std::exception
 		{
+			public:
+				const char * what() const no except override;
+		};
 
-		}
-	}
-
-
-}
-
-void setName(const std::string);
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& other);
 

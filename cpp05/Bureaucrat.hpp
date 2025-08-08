@@ -23,16 +23,16 @@ class Bureaucrat
 		void incrementGrade();
 		void decrementGrade();
 
-	class GradeTooHighException : public std::exception
-	{
-		public:
-			const char * what() const no except override;
-	};
-	class GradeTooLowException : public std::exception
-	{
-		public:
-			const char * what() const no except override;
-	};
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				const char * what() const no except override;
+		};
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				const char * what() const no except override;
+		};
 
 };
 
