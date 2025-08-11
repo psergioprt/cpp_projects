@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 15:31:31 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/08/08 17:13:57 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/08/09 11:13:26 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name)
 	_grade = grade;
 }
 
-Bureaucrat::Bureaucrat(const bureaucrat& other) : _name(other._name), _grade(other.grade){}
+Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(other._grade){}
 
-Bureaucrat& operator=(const bureaucrat& other)
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 {
 	if (this != &other)
 	{
@@ -36,22 +36,35 @@ Bureaucrat& operator=(const bureaucrat& other)
 
 ~Bureaucrat(){}
 
-const std::string getName() const;
-		int getGrade() const;
+const std::string& Bureaucrat::getName() const
+{
+	return this->_name;
+}
 
-		void incrementGrade();
-		void decrementGrade();
+int Bureaucrat::getGrade() const
+{
+	return this->_grade;
+}
 
-		class GradeTooHighException : public std::exception
-		{
-			public:
-				const char * what() const no except override;
-		};
-		class GradeTooLowException : public std::exception
-		{
-			public:
-				const char * what() const no except override;
-		};
+void Bureaucrat::incrementGrade()
+{
+	if (this->_grade <= 1)
+		throw GradeTooHighException();
+	--this->_grade;
+		
+}
+
+void Bureaucrat::decrementGrade()
+{
+	if (this->_grade >= 150)
+		throw GradeTooLowException();
+	++this->_grade;
+}
+
+const char * Bureaucrat::what() const noexcept override;
+
+const char * what() const noexcept override;
+
 
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& other);
