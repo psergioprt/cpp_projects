@@ -3,38 +3,38 @@
 
 #include <iostream>
 #include <string>
+#include <exception>
 #include "Bureaucrat.hpp"
 
 class Form
 {
 	private:
-		const std::string _name;
-		bool	_isSigned;
-		const int _signGrade;
-		const int _executeGrade;
-
+		const std::string	_name;
+		bool			_isSigned;
+		const int		_signGrade;
+		const int		_executeGrade;
 
 	public:
 		Form();
-		Form(const std::string name, int signGrade, int execGrade);
+		Form(const std::string& name, int signGrade, int executeGrade);
 		Form(const Form& other);
 		Form& operator=(const Form& other);
 		~Form();
-
-		const std::string& getName() const;
-		bool getIsSigned() const;
-		int getSignInGrade() const;
-		int getExecuteGrade() const;
+		
+		const	std::string& 	getName() const;
+		bool			getIsSigned() const;
+		int			getSignGrade() const;
+		int			getExecuteGrade() const;
 
 		class GradeTooHighException : public std::exception
 		{
 			public:
-				const char * what() const noexcept override;
+				virtual const char * what() const throw(); 
 		};
 		class GradeTooLowException : public std::exception
 		{
 			public:
-				const char * what() const noexcept override;
+				virtual const char * what() const throw();
 		};
 
 		void beSigned(const Bureaucrat& bureaucrat);

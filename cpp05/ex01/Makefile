@@ -3,7 +3,7 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = main.cpp Bureaucrat.cpp Form.cpp
 OBJ = $(SRC:.cpp=.o)
-RM = rm - f
+RM = rm -f
 
 all: $(NAME)
 
