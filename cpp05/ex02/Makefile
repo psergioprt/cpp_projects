@@ -2,7 +2,7 @@ NAME = Bureaucrat
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp \
-      RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+      #RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 OBJ = $(SRC:.cpp=.o)
 
 RM = rm -f
@@ -12,11 +12,12 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
-clean:
+clean: 
 	$(RM) $(OBJ)
 
-fclean: clean $(NAME)
+fclean: clean
+	$(RM) $(NAME)
 
-re: fclean all
+re: fclean $(NAME)
 
 .PHONY: all clean fclean re
