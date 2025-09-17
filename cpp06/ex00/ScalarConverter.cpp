@@ -17,33 +17,28 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other)
 
 ScalarConverter::~ScalarConverter(){}
 
-void handle_pseudo_literals(const std::string& str)
+bool handle_pseudo_literals(const std::string& str)
 {
 	if (str == "nan" || str == "nanf")
 	{
-		std::cout << "char: impossible" << std::endl;
-		std::cout << "int: impossible" << std::endl;
-		std::cout << "float: nanf" << std::endl;
-		std::cout << "double: nan" << std::endl;
+		std::cout << "char: impossible\nint: impossible\nfloat: nanf\ndouble: nan" << std::endl;
+		return true;
 	}
 	if (str == "+inf" || str == "+inff")
 	{
-		std::cout << "char: impossible" << std::endl;
-		std::cout << "int: impossible" << std::endl;
-		std::cout << "float: +inff" << std::endl;
-		std::cout << "double: +inf" << std::endl;
+		std::cout << "char: impossible\nint: impossible\nfloat: +inff\ndouble: +inf" << std::endl;
+		return true;
 	}
 	if (str == "-inf" || str == "-inff")
 	{
-		std::cout << "char: impossible" << std::endl;
-		std::cout << "int: impossible" << std::endl;
-		std::cout << "float: -inff" << std::endl;
-		std::cout << "double: -inf" << std::endl;
+		std::cout << "char: impossible\nint: impossible\nfloat: -inff\ndouble: -inf" << std::endl;
+		return true;
 	}
-
+	return false;
 }
 
 void ScalarConverter::convert(const std::string& str)
 {
-	handle_pseudo_literals(str);
+	if (handle_pseudo_literals(str))
+		return;
 }
