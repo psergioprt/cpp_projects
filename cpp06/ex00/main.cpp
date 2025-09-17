@@ -3,10 +3,13 @@
 
 #include "ScalarConverter.hpp"
 
-int main()
+int main(int argc, char *argv[])
 {
-	ScalarConverter c1;
-
-	c1("nanf");
+	if (argc != 2)
+	{
+		std::cerr << "Usage: " << argv[0] << " Literal" << std::endl;
+		return 1;
+	}
+	ScalarConverter::convert(argv[1]);
 	return 0;
 }
