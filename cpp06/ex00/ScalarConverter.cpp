@@ -113,6 +113,59 @@ bool detectFloatType(const std::string& str)
 	if (str[0] == '+' || str[0] == '-')
 		i = 1;
 
+	if (str.length() == i)
+		return false;
+	for (size_t k = 0; k < str.length() - 1; k++)
+	{
+		unsigned char d = static_cast<unsigned char>(str[k]);
+		if (d == '.')
+			count_point++;
+		if (d == 'e' || d == 'E')
+		{
+			if (k == 0)
+				return false;
+		//	if (k == str.length() - 2)
+		//		return false;
+			count_e++;
+		}
+	}
+	if (count_point > 1 || count_e > 1)
+		return false;
+	if (count_point == 0 && count_e == 0)
+		return false;
+	std::cout << "point: " << count_point << ". e: " << count_e << ". str_length: " << str.length() << std::endl;
+	for (; i < str.length(); i++)
+	{
+		unsigned char c = static_cast<unsigned char>(str[i]);
+		if (!(c >= '0' && c <= '9') && (count_point > 1 || count_e > 1) && (count_point == 0 && count_e == 0) && str[str.length() - 1] == 'f')
+		{
+			std::cout << "NOT FLOAT" << std::endl;
+			return 1;
+		}
+		else if (!(c >= '0' && c <= '9') && (count_point > 1 || count_e > 1) && (count_point == 0 && count_e == 0) && str[str.length() - 1] != 'f')
+		{
+			std::cout << "NOT DOUBLE" << std::endl;
+			return 1;
+		}
+	}
+	if (str[str.length() - 1] == 'f')
+		std::cout << "It is FLOAT" << std::endl;
+	else if (str[str.length() - 1] != 'f')
+		std::cout << "It is DOUBLE" << std::endl;
+	return true;
+}
+
+/*bool detectFloatType(const std::string& str)
+{
+	if (str.empty())
+		return false;
+	size_t i = 0;
+	size_t count_point = 0;
+	size_t count_e = 0;
+	
+	if (str[0] == '+' || str[0] == '-')
+		i = 1;
+
 	if (str.length() == i || str[str.length() - 1] != 'f')
 		return false;
 	for (size_t k = 0; k < str.length() - 1; k++)
@@ -137,7 +190,7 @@ bool detectFloatType(const std::string& str)
 	for (; i < str.length(); i++)
 	{
 		unsigned char c = static_cast<unsigned char>(str[i]);
-		if (!(c >= '0' && c <= '9'))
+		if (!(c >= '0' && c <= '9') && (count_point > 1 || count_e > 1) && (count_point == 0 && count_e == 0))
 		{
 			std::cout << "NOT FLOAT" << std::endl;
 			return 1;
@@ -145,7 +198,7 @@ bool detectFloatType(const std::string& str)
 	}
 	std::cout << "It is FLOAT" << std::endl;
 	return true;
-}
+}*/
 
 bool detectInputType(const std::string& str)
 {
