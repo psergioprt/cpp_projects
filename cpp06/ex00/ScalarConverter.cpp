@@ -122,10 +122,12 @@ bool detectFloatType(const std::string& str)
 			count_point++;
 		if (d == 'e' || d == 'E')
 		{
-			if (k == 0)
+			if (k == i)
 				return false;
-		//	if (k == str.length() - 2)
-		//		return false;
+			if (k == str.length() - 1)
+				return false;
+			if(!(isdigit(str[k - 1])) || !(isdigit(str[k +  1]) || str[k + 1] == '+') || str[k + 1] == '-')
+				return false;
 			count_e++;
 		}
 	}
@@ -137,7 +139,17 @@ bool detectFloatType(const std::string& str)
 	for (; i < str.length(); i++)
 	{
 		unsigned char c = static_cast<unsigned char>(str[i]);
-		if (!(c >= '0' && c <= '9') && (count_point > 1 || count_e > 1) && (count_point == 0 && count_e == 0) && str[str.length() - 1] == 'f')
+
+		if (isdigit(c))
+			continue;
+		if (c == '.' || c == 'e' || c == 'E')
+			continue;
+
+		if (c == 'f' && i == str.length() - 1)
+			continue;
+		std::cout << "Invalid character in number" << std::endl;
+		return false;
+		/*if (!(c >= '0' && c <= '9') && (count_point > 1 || count_e > 1) && (count_point == 0 && count_e == 0) && str[str.length() - 1] == 'f')
 		{
 			std::cout << "NOT FLOAT" << std::endl;
 			return 1;
@@ -146,7 +158,7 @@ bool detectFloatType(const std::string& str)
 		{
 			std::cout << "NOT DOUBLE" << std::endl;
 			return 1;
-		}
+		}*/
 	}
 	if (str[str.length() - 1] == 'f')
 		std::cout << "It is FLOAT" << std::endl;
