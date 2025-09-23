@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   serializer.hpp                                     :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 11:50:51 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/09/23 12:06:28 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/09/23 15:31:50 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 #define SERIALIZER_HPP
 
 #include <string>
-#include <cstdint>
+#include <stdint.h>
+#include "Data.hpp"
 
 class Serializer
 {

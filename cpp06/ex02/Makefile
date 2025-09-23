@@ -1,15 +1,15 @@
-NAME = serialize
+NAME = checktype
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = Serializer.cpp main.cpp
+SRC = main.cpp Functions.cpp
 OBJ = $(SRC:.cpp=.o)
 RM = rm -f
 all: $(NAME)
 
-$(NAME):$(OBJ)
+$(NAME): $(OBJ)
 	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
-clean: 
+clean:
 	$(RM) $(OBJ)
 
 fclean: clean

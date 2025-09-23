@@ -6,19 +6,24 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 12:07:57 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/09/23 12:18:16 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/09/23 15:31:04 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
+#include "Data.hpp"
 
 Serializer::Serializer(){}
 
-Serializer::Serializer(const Serializer& other){(void) other;}
+Serializer::Serializer(const Serializer& other)
+{
+	*this = other;
+}
 
 Serializer& Serializer::operator=(const Serializer& other)
 {
-	(void)other;
+	if (this != &other)
+		return *this;
 	return *this;
 }
 
