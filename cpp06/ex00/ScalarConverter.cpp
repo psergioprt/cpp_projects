@@ -2,6 +2,8 @@
 #include <cerrno>
 #include <climits>
 #include <cstdlib>
+#include <iomanip>
+#include <cmath>
 
 #include "ScalarConverter.hpp"
 
@@ -58,21 +60,21 @@ bool handleNonDisplayableCharacters(const std::string& str)
 	return false;
 }
 
-bool detectCharType(const std::string& str)
+bool detectCharType(const std::string& str, ScalarConverter::Type &type)
 {
 	if (str.length() == 1)
 	{
 		unsigned char c = static_cast<unsigned char>(str[0]);
 		if (!(handleNonDisplayableCharacters(str)) && !(c >= '0' && c <= '9'))
 		{
-			std::cout << "Is CHAR!!!" << std::endl;
+			type = ScalarConverter::CHAR;
 			return true;
 		}
 	}
 	return false;
 }
 
-bool detectIntType(const std::string& str)
+bool detectIntType(const std::string& str, ScalarConverter::Type &type)
 {
 	if(str.empty())
 		return false;
@@ -85,24 +87,20 @@ bool detectIntType(const std::string& str)
 	{
 		unsigned char c = static_cast<unsigned char>(str[i]);
 		if (!(c >= '0' && c <= '9'))
-		{
-			std::cout << "NOT INT" << std::endl;
 			return false;
-		}
 	}
 	errno = 0;
 	long value = std::strtol(str.c_str(), NULL, 10);
-	std::cout << "INT_MIN: " << INT_MIN << ". INT_MAX: " << INT_MAX << std::endl;
 	if (errno == ERANGE || value < INT_MIN || value > INT_MAX)
 	{
 		std::cout << "Value out of range" << std::endl;
 		return false;
 	}
-	std::cout << "IS INT" << std::endl;
+	type = ScalarConverter::INT; 
 	return true;
 }
 
-bool detectFloatType(const std::string& str)
+bool detectFloatDoubleType(const std::string& str, ScalarConverter::Type &type)
 {
 	if (str.empty())
 		return false;
@@ -112,7 +110,6 @@ bool detectFloatType(const std::string& str)
 	
 	if (str[0] == '+' || str[0] == '-')
 		i = 1;
-
 	if (str.length() == i)
 		return false;
 	for (size_t k = 0; k < str.length() - 1; k++)
@@ -130,7 +127,8 @@ bool detectFloatType(const std::string& str)
 				return false;
 			if (k + 1 >= str.length())
 				return false;
-			if (!(isdigit(str[k +  1]) || str[k + 1] == '+') || str[k + 1] == '-')
+			if (!(isdigit(str[k +  1]) || str[k + 1] == '+' || str[k + 1] == '-'))
+				return false;
 			count_e++;
 		}
 	}
@@ -138,7 +136,6 @@ bool detectFloatType(const std::string& str)
 		return false;
 	if (count_point == 0 && count_e == 0)
 		return false;
-	std::cout << "point: " << count_point << ". e: " << count_e << ". str_length: " << str.length() << std::endl;
 	for (; i < str.length(); i++)
 	{
 		unsigned char c = static_cast<unsigned char>(str[i]);
@@ -147,81 +144,101 @@ bool detectFloatType(const std::string& str)
 			continue;
 		if (c == '.' || c == 'e' || c == 'E')
 			continue;
-
 		if (c == 'f' && i == str.length() - 1)
 			continue;
-		std::cout << "Invalid character in number" << std::endl;
+		if ((c == '+' || c == '-') && (str[i - 1] == 'e' || str[i - 1] == 'E'))
+			continue;
 		return false;
 	}
 	if (str[str.length() - 1] == 'f')
-		std::cout << "It is FLOAT" << std::endl;
+		type = ScalarConverter::FLOAT;
 	else if (str[str.length() - 1] != 'f')
-		std::cout << "It is DOUBLE" << std::endl;
+		type = ScalarConverter::DOUBLE;
 	return true;
 }
 
-/*bool detectFloatType(const std::string& str)
-{
-	if (str.empty())
-		return false;
-	size_t i = 0;
-	size_t count_point = 0;
-	size_t count_e = 0;
-	
-	if (str[0] == '+' || str[0] == '-')
-		i = 1;
 
-	if (str.length() == i || str[str.length() - 1] != 'f')
-		return false;
-	for (size_t k = 0; k < str.length() - 1; k++)
-	{
-		unsigned char d = static_cast<unsigned char>(str[k]);
-		if (d == '.')
-			count_point++;
-		if (d == 'e' || d == 'E')
-		{
-			if (k == 0)
-				return false;
-			if (k == str.length() - 2)
-				return false;
-			count_e++;
-		}
-	}
-	if (count_point > 1 || count_e > 1)
-		return false;
-	if (count_point == 0 && count_e == 0)
-		return false;
-	std::cout << "point: " << count_point << ". e: " << count_e << ". str_length: " << str.length() << std::endl;
-	for (; i < str.length(); i++)
-	{
-		unsigned char c = static_cast<unsigned char>(str[i]);
-		if (!(c >= '0' && c <= '9') && (count_point > 1 || count_e > 1) && (count_point == 0 && count_e == 0))
-		{
-			std::cout << "NOT FLOAT" << std::endl;
-			return 1;
-		}
-	}
-	std::cout << "It is FLOAT" << std::endl;
-	return true;
-}*/
-
-bool detectInputType(const std::string& str)
+bool detectInputType(const std::string& str, ScalarConverter::Type &type)
 {
-	if (detectCharType(str))
+	if (detectCharType(str, type))
 		return true;
-	if (detectIntType(str))
+	if (detectIntType(str, type))
 		return true;
-	if (detectFloatType(str))
+	if (detectFloatDoubleType(str, type))
 		return true;
 	return false;
 }
 
-void ScalarConverter::convert(const std::string& str)
+void ConvertValue(const std::string& str, ScalarConverter::Type &type)
 {
+	switch(type)
+	{
+		case ScalarConverter::CHAR:
+		{
+			char c = str[0];
+			std::cout << "char: " << c << std::endl;
+			std::cout << "int: " << static_cast<int>(c) << std::endl;
+			std::cout << std::fixed << std::setprecision(1);
+			std::cout << "float: " << static_cast<float>(c) << "f" << std::endl;
+			std::cout << "double: " << static_cast<double>(c) << std::endl;
+			break;
+		}
+		case ScalarConverter::INT:
+		{
+			int tmp = std::strtol(str.c_str(), NULL, 10);
+			int i = static_cast<int>(tmp);
+			if (i < 32 || i > 126)
+				std::cout << "char: non_displayable" << std::endl;
+			else
+				std::cout << "char: " << static_cast<char>(i) << std::endl;
+			std::cout << "int: " << i << std::endl;
+			std::cout << std::fixed << std::setprecision(1);
+			std::cout << "float: " << static_cast<float>(i) << "f" << std::endl;
+			std::cout << "double: " << static_cast<double>(i) << std::endl;
+			break;
+		}
+		case ScalarConverter::FLOAT:
+		{
+			float tmp = std::strtof(str.c_str(), NULL);
+			int f = static_cast<int>(tmp);
+			if (f < 32 || f > 126 || std::isnan(f))
+				std::cout << "char: non_displayable" << std::endl;
+			else
+				std::cout << "char: " << static_cast<char>(f) << std::endl;
+			std::cout << "int: " << f << std::endl;
+			std::cout << std::fixed << std::setprecision(1);
+			std::cout << "float: " << static_cast<float>(f) << "f" << std::endl;
+			std::cout << "double: " << static_cast<double>(f) << std::endl;
+			break;
+		}
+		case ScalarConverter::DOUBLE:
+		{
+			double tmp = std::strtod(str.c_str(), NULL);
+			int d = static_cast<int>(tmp);
+			if (d < 32 || d > 33 || std::isnan(d))
+				std::cout << "Char: Char not visible" << std::endl;
+			else
+				std::cout << static_cast<char>(d) << std::endl;
+			break;
+		}
+		default:
+			std::cout << "Not a valid type" << std::endl;
+
+	}
+}
+
+void ScalarConverter::convert(const std::string& str, ScalarConverter::Type &type)
+{
+	type = ScalarConverter::UNKNOWN;
+
 	if (handlePseudoLiterals(str))
 		return;
 	if (handleNonDisplayableCharacters(str))
 		return;
-	if (detectInputType(str))
-		return ;
+	if (detectInputType(str, type))
+	{
+		ConvertValue(str, type);
+		return;
+	}
+	std::cout << "Error: '" << str << "' is not a valid input" << std::endl;
 }

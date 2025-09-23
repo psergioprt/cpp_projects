@@ -12,7 +12,15 @@ class ScalarConverter
 		ScalarConverter& operator=(const ScalarConverter& other);
 		~ScalarConverter();
 	public:
-		static void convert(const std::string& str);
+		enum Type
+		{
+			UNKNOWN,
+			CHAR,
+			INT,
+			FLOAT,
+			DOUBLE
+		};
+		static void convert(const std::string& str, Type &type);
 };
 
 #endif
