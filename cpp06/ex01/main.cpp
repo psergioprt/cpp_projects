@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   serializer.hpp                                     :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/23 11:50:51 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/09/23 11:59:11 by pauldos-         ###   ########.fr       */
+/*   Created: 2025/09/23 12:27:54 by pauldos-          #+#    #+#             */
+/*   Updated: 2025/09/23 12:33:44 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZER_HPP
-#define SERIALIZER_HPP
+#include <iostream>
+#include "Data.hpp"
+#include "Serializer.hpp"
 
-#include <string>
-
-class Serializer
+int main()
 {
-	private:
-		Serializer();
-		Serializer(const Serializer& other);
-		Serializer& operator=(const Serializer& other);
-		~Serializer();
-		uintptr_t serialize(Data* ptr);
-		Data* deserialize(uintptr_t raw);
+	Data data;
+	data.id = 42;
+	data.name = "Test object";
 
-	public:
-};
-
-#endif
+	uintptr_t raw = Serializer::serialize(&data);
+	std::cout << "Serialized pointer: " << raw << std::endl;
+}
