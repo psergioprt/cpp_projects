@@ -31,7 +31,7 @@ bool handlePseudoLiterals(const std::string& str)
 		std::cout << "char: impossible\nint: impossible\nfloat: nanf\ndouble: nan" << std::endl;
 		return true;
 	}
-	if (str == "+inf" || str == "+inff")
+	if (str == "+inf" || str == "+inff" || str == "inf" || str == "inff")
 	{
 		std::cout << "char: impossible\nint: impossible\nfloat: +inff\ndouble: +inf" << std::endl;
 		return true;
@@ -207,18 +207,22 @@ void ConvertValue(const std::string& str, ScalarConverter::Type &type)
 				std::cout << "char: " << static_cast<char>(f) << std::endl;
 			std::cout << "int: " << f << std::endl;
 			std::cout << std::fixed << std::setprecision(1);
-			std::cout << "float: " << static_cast<float>(f) << "f" << std::endl;
-			std::cout << "double: " << static_cast<double>(f) << std::endl;
+			std::cout << "float: " << static_cast<float>(tmp) << "f" << std::endl;
+			std::cout << "double: " << static_cast<double>(tmp) << std::endl;
 			break;
 		}
 		case ScalarConverter::DOUBLE:
 		{
 			double tmp = std::strtod(str.c_str(), NULL);
 			int d = static_cast<int>(tmp);
-			if (d < 32 || d > 33 || std::isnan(d))
+			if (d < 32 || d > 126 || std::isnan(d))
 				std::cout << "Char: Char not visible" << std::endl;
 			else
-				std::cout << static_cast<char>(d) << std::endl;
+				std::cout << "char: " << static_cast<char>(d) << std::endl;
+			std::cout << "int: " << static_cast<int>(d) << std::endl;
+			std::cout << std::fixed << std::setprecision(1);
+			std::cout << "float: " << static_cast<float>(tmp) << "f" << std::endl;
+			std::cout << "double: " << static_cast<double>(tmp) << std::endl;
 			break;
 		}
 		default:
