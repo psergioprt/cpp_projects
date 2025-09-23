@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Intern.hpp                                         :+:      :+:    :+:   */
+/*   serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/23 11:23:44 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/09/23 11:23:47 by pauldos-         ###   ########.fr       */
+/*   Created: 2025/09/23 11:50:51 by pauldos-          #+#    #+#             */
+/*   Updated: 2025/09/23 11:59:11 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INTERN_HPP
-#define INTERN_HPP
+#ifndef SERIALIZER_HPP
+#define SERIALIZER_HPP
 
 #include <string>
-#include "AForm.hpp"
 
-class Intern
+class Serializer
 {
+	private:
+		Serializer();
+		Serializer(const Serializer& other);
+		Serializer& operator=(const Serializer& other);
+		~Serializer();
+		uintptr_t serialize(Data* ptr);
+		Data* deserialize(uintptr_t raw);
+
 	public:
-		Intern();
-		Intern(const Intern& other);
-		Intern& operator=(const Intern& other);
-		~Intern();
-		AForm* makeForm(const std::string& name, const std::string& target) const;
 };
 
 #endif
