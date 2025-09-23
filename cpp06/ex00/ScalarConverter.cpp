@@ -188,9 +188,9 @@ void ConvertValue(const std::string& str, ScalarConverter::Type &type)
 			int tmp = std::strtol(str.c_str(), NULL, 10);
 			int i = static_cast<int>(tmp);
 			if (i < 32 || i > 126)
-				std::cout << "char: non_displayable" << std::endl;
+				std::cout << "char: Non displayable" << std::endl;
 			else
-				std::cout << "char: " << static_cast<char>(i) << std::endl;
+				std::cout << "char: '" << static_cast<char>(i) << "'" << std::endl;
 			std::cout << "int: " << i << std::endl;
 			std::cout << std::fixed << std::setprecision(1);
 			std::cout << "float: " << static_cast<float>(i) << "f" << std::endl;
@@ -202,9 +202,9 @@ void ConvertValue(const std::string& str, ScalarConverter::Type &type)
 			float tmp = std::strtof(str.c_str(), NULL);
 			int f = static_cast<int>(tmp);
 			if (f < 32 || f > 126 || std::isnan(f))
-				std::cout << "char: non_displayable" << std::endl;
+				std::cout << "char: Non displayable" << std::endl;
 			else
-				std::cout << "char: " << static_cast<char>(f) << std::endl;
+				std::cout << "char: '" << static_cast<char>(f) << "'" << std::endl;
 			std::cout << "int: " << f << std::endl;
 			std::cout << std::fixed << std::setprecision(1);
 			std::cout << "float: " << static_cast<float>(tmp) << "f" << std::endl;
@@ -216,9 +216,9 @@ void ConvertValue(const std::string& str, ScalarConverter::Type &type)
 			double tmp = std::strtod(str.c_str(), NULL);
 			int d = static_cast<int>(tmp);
 			if (d < 32 || d > 126 || std::isnan(d))
-				std::cout << "Char: Char not visible" << std::endl;
+				std::cout << "char: Non displayable" << std::endl;
 			else
-				std::cout << "char: " << static_cast<char>(d) << std::endl;
+				std::cout << "char: '" << static_cast<char>(d) << "'" << std::endl;
 			std::cout << "int: " << static_cast<int>(d) << std::endl;
 			std::cout << std::fixed << std::setprecision(1);
 			std::cout << "float: " << static_cast<float>(tmp) << "f" << std::endl;
