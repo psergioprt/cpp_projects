@@ -6,13 +6,14 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 11:27:36 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/09/23 11:27:39 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/09/25 12:17:47 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <cerrno>
 #include <climits>
+#include <limits>
 #include <cstdlib>
 #include <iomanip>
 #include <cmath>
@@ -100,13 +101,6 @@ bool detectIntType(const std::string& str, ScalarConverter::Type &type)
 		unsigned char c = static_cast<unsigned char>(str[i]);
 		if (!(c >= '0' && c <= '9'))
 			return false;
-	}
-	errno = 0;
-	long value = std::strtol(str.c_str(), NULL, 10);
-	if (errno == ERANGE || value < INT_MIN || value > INT_MAX)
-	{
-		std::cout << "Value out of range" << std::endl;
-		return false;
 	}
 	type = ScalarConverter::INT; 
 	return true;
@@ -197,49 +191,76 @@ void ConvertValue(const std::string& str, ScalarConverter::Type &type)
 		}
 		case ScalarConverter::INT:
 		{
-			int tmp = std::strtol(str.c_str(), NULL, 10);
-			int i = static_cast<int>(tmp);
-			if (i < 32 || i > 126)
-				std::cout << "char: Non displayable" << std::endl;
+			long tmp = std::strtol(str.c_str(), NULL, 10);
+			if (tmp < std::numeric_limits<int>::min() || tmp > std::numeric_limits<int>::max())
+			{
+				std::cout << "char: impossible" << std::endl;
+				std::cout << "int: impossible" << std::endl;
+			}
 			else
-				std::cout << "char: '" << static_cast<char>(i) << "'" << std::endl;
-			std::cout << "int: " << i << std::endl;
+			{
+				int i = static_cast<int>(tmp);
+				if ((i >= 0 && i < 32)  || i == 127)
+					std::cout << "char: Non displayable" << std::endl;
+				else if (i < 0 || i > 127)
+					std::cout << "char: impossible" << std::endl;
+				else
+					std::cout << "char: '" << static_cast<char>(i) << "'" << std::endl;
+
+				std::cout << "int: " << i << std::endl;
+
+			}
 			std::cout << std::fixed << std::setprecision(1);
-			std::cout << "float: " << static_cast<float>(i) << "f" << std::endl;
-			std::cout << "double: " << static_cast<double>(i) << std::endl;
+			std::cout << "float: " << static_cast<float>(tmp) << "f" << std::endl;
+			std::cout << "double: " << static_cast<double>(tmp) << std::endl;
 			break;
 		}
 		case ScalarConverter::FLOAT:
 		{
 			float tmp = std::strtof(str.c_str(), NULL);
-			int f = static_cast<int>(tmp);
-			if (f < 32 || f > 126 || std::isnan(f))
+
+			if (std::isnan(tmp) || tmp < 0 || tmp > 127)
+				std::cout << "char: impossible" << std::endl;
+			else if (!std::isprint(static_cast<char>(tmp)))
 				std::cout << "char: Non displayable" << std::endl;
 			else
-				std::cout << "char: '" << static_cast<char>(f) << "'" << std::endl;
-			std::cout << "int: " << f << std::endl;
+				std::cout << "char: '" << static_cast<char>(tmp) << "'" << std::endl;
+			if (std::isnan(tmp) || tmp < std::numeric_limits<int>::min() || tmp > std::numeric_limits<int>::max())
+				std::cout << "int: impossible" << std::endl;
+			else
+				std::cout << "int: " << static_cast<int>(tmp) << std::endl;
 			std::cout << std::fixed << std::setprecision(1);
-			std::cout << "float: " << static_cast<float>(tmp) << "f" << std::endl;
+			if (std::abs(tmp) > std::numeric_limits<float>::max())
+				std::cout << "float: impossible" << std::endl;
+			else
+				std::cout << "float: " << static_cast<float>(tmp) << "f" << std::endl;
 			std::cout << "double: " << static_cast<double>(tmp) << std::endl;
 			break;
 		}
 		case ScalarConverter::DOUBLE:
 		{
 			double tmp = std::strtod(str.c_str(), NULL);
-			int d = static_cast<int>(tmp);
-			if (d < 32 || d > 126 || std::isnan(d))
+
+			if (std::isnan(tmp) || tmp < 0 || tmp > 127)
+				std::cout << "char: impossible" << std::endl;
+			else if (!std::isprint(static_cast<char>(tmp)))
 				std::cout << "char: Non displayable" << std::endl;
 			else
-				std::cout << "char: '" << static_cast<char>(d) << "'" << std::endl;
-			std::cout << "int: " << static_cast<int>(d) << std::endl;
+				std::cout << "char: '" << static_cast<char>(tmp) << "'" << std::endl;
+			if (std::isnan(tmp) || tmp < std::numeric_limits<int>::min() || tmp > std::numeric_limits<int>::max())
+				std::cout << "int: impossible" << std::endl;
+			else
+				std::cout << "int: " << static_cast<int>(tmp) << std::endl;
 			std::cout << std::fixed << std::setprecision(1);
-			std::cout << "float: " << static_cast<float>(tmp) << "f" << std::endl;
+			if (std::abs(tmp) > std::numeric_limits<float>::max())
+				std::cout << "float: impossible" << std::endl;
+			else
+				std::cout << "float: " << static_cast<float>(tmp) << "f" << std::endl;
 			std::cout << "double: " << static_cast<double>(tmp) << std::endl;
 			break;
 		}
 		default:
 			std::cout << "Not a valid type" << std::endl;
-
 	}
 }
 
