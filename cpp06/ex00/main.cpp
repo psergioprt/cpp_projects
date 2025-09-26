@@ -6,13 +6,12 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 09:49:32 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/09/25 09:49:37 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/09/26 09:24:22 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
-
 #include "ScalarConverter.hpp"
 
 int main(int argc, char *argv[])

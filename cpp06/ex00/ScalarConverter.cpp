@@ -6,18 +6,17 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 11:27:36 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/09/25 12:17:47 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/09/26 09:53:56 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <cerrno>
-#include <climits>
 #include <limits>
 #include <cstdlib>
 #include <iomanip>
 #include <cmath>
-
+#include <climits>
 #include "ScalarConverter.hpp"
 
 ScalarConverter::ScalarConverter(){}
@@ -61,7 +60,7 @@ bool handleNonDisplayableCharacters(const std::string& str)
 {
 	if (str.empty())
 		return false;
-	for (size_t i = 0; i < str.length(); i++)
+/*	for (size_t i = 0; i < str.length(); i++)
 	{
 		unsigned char c = static_cast<unsigned char>(str[i]);
 		if (c < 32 || c > 126)
@@ -69,7 +68,7 @@ bool handleNonDisplayableCharacters(const std::string& str)
 			std::cerr << "Invalid character" << std::endl;
 			return true;
 		}
-	}
+	}*/
 	return false;
 }
 
@@ -175,19 +174,30 @@ bool detectInputType(const std::string& str, ScalarConverter::Type &type)
 	return false;
 }
 
+void caseChar(const std::string& str)
+{
+	char c = str[0];
+	std::cout << "char: " << c << std::endl;
+	std::cout << "int: " << static_cast<int>(c) << std::endl;
+	std::cout << std::fixed << std::setprecision(1);
+	std::cout << "float: " << static_cast<float>(c) << "f" << std::endl;
+	std::cout << "double: " << static_cast<double>(c) << std::endl;
+}
+
 void ConvertValue(const std::string& str, ScalarConverter::Type &type)
 {
 	switch(type)
 	{
 		case ScalarConverter::CHAR:
 		{
-			char c = str[0];
+			caseChar(str); break;
+			/*char c = str[0];
 			std::cout << "char: " << c << std::endl;
 			std::cout << "int: " << static_cast<int>(c) << std::endl;
 			std::cout << std::fixed << std::setprecision(1);
 			std::cout << "float: " << static_cast<float>(c) << "f" << std::endl;
 			std::cout << "double: " << static_cast<double>(c) << std::endl;
-			break;
+			break;*/
 		}
 		case ScalarConverter::INT:
 		{
@@ -264,6 +274,13 @@ void ConvertValue(const std::string& str, ScalarConverter::Type &type)
 	}
 }
 
+void non_convertable_string()
+{
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	std::cout << "float: impossible" << std::endl;
+	std::cout << "double: impossible" << std::endl;
+}
 void ScalarConverter::convert(const std::string& str, ScalarConverter::Type &type)
 {
 	type = ScalarConverter::UNKNOWN;
@@ -277,5 +294,5 @@ void ScalarConverter::convert(const std::string& str, ScalarConverter::Type &typ
 		ConvertValue(str, type);
 		return;
 	}
-	std::cout << "Error: '" << str << "' is not a valid input" << std::endl;
+	non_convertable_string();
 }

@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 09:48:59 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/09/25 09:49:02 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/09/26 08:43:50 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 int main()
 {
+
 	Base* obj = generate();
 
 	std::cout << "Identify with pointer: ";
