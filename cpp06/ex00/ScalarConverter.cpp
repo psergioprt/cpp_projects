@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 11:27:36 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/09/26 09:53:56 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/09/30 11:41:14 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,7 +162,6 @@ bool detectFloatDoubleType(const std::string& str, ScalarConverter::Type &type)
 	return true;
 }
 
-
 bool detectInputType(const std::string& str, ScalarConverter::Type &type)
 {
 	if (detectCharType(str, type))
@@ -177,11 +176,84 @@ bool detectInputType(const std::string& str, ScalarConverter::Type &type)
 void caseChar(const std::string& str)
 {
 	char c = str[0];
-	std::cout << "char: " << c << std::endl;
+
+	if (std::isprint(c))
+		std::cout << "char: '" << c << "'" << std::endl;
+	else
+		std::cout << "char: Non displayable" << std::endl;
 	std::cout << "int: " << static_cast<int>(c) << std::endl;
 	std::cout << std::fixed << std::setprecision(1);
 	std::cout << "float: " << static_cast<float>(c) << "f" << std::endl;
 	std::cout << "double: " << static_cast<double>(c) << std::endl;
+}
+
+void caseInt(const std::string& str)
+{
+	long tmp = std::strtol(str.c_str(), NULL, 10);
+	if (tmp < std::numeric_limits<int>::min() || tmp > std::numeric_limits<int>::max())
+	{
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+	}
+	else
+	{
+		int i = static_cast<int>(tmp);
+		if ((i >= 0 && i < 32)  || i == 127)
+			std::cout << "char: Non displayable" << std::endl;
+		else if (i < 0 || i > 127)
+			std::cout << "char: impossible" << std::endl;
+		else
+			std::cout << "char: '" << static_cast<char>(i) << "'" << std::endl;
+		std::cout << "int: " << i << std::endl;
+	}
+	std::cout << std::fixed << std::setprecision(1);
+	std::cout << "float: " << static_cast<float>(tmp) << "f" << std::endl;
+	std::cout << "double: " << static_cast<double>(tmp) << std::endl;
+}
+
+void caseFloat(const std::string& str)
+{
+	float tmp = std::strtof(str.c_str(), NULL);
+
+	if (std::isnan(tmp) || tmp < 0 || tmp > 127)
+		std::cout << "char: impossible" << std::endl;
+	else if (!std::isprint(static_cast<char>(tmp)))
+		std::cout << "char: Non displayable" << std::endl;
+	else
+		std::cout << "char: '" << static_cast<char>(tmp) << "'" << std::endl;
+	if (std::isnan(tmp) || tmp < std::numeric_limits<int>::min() || tmp > std::numeric_limits<int>::max())
+		std::cout << "int: impossible" << std::endl;
+	else
+		std::cout << "int: " << static_cast<int>(tmp) << std::endl;
+	std::cout << std::fixed << std::setprecision(1);
+	if (std::abs(tmp) > std::numeric_limits<float>::max())
+		std::cout << "float: impossible" << std::endl;
+	else
+		std::cout << "float: " << static_cast<float>(tmp) << "f" << std::endl;
+	std::cout << "double: " << static_cast<double>(tmp) << std::endl;
+}
+
+void caseDouble(const std::string& str)
+{
+	double tmp = std::strtod(str.c_str(), NULL);
+
+	if (std::isnan(tmp) || tmp < 0 || tmp > 127)
+		std::cout << "char: impossible" << std::endl;
+	else if (!std::isprint(static_cast<char>(tmp)))
+		std::cout << "char: Non displayable" << std::endl;
+	else
+		std::cout << "char: '" << static_cast<char>(tmp) << "'" << std::endl;
+	if (std::isnan(tmp) || tmp < std::numeric_limits<int>::min() || tmp > std::numeric_limits<int>::max())
+		std::cout << "int: impossible" << std::endl;
+	else
+		std::cout << "int: " << static_cast<int>(tmp) << std::endl;
+	std::cout << std::fixed << std::setprecision(1);
+	if (std::abs(tmp) > std::numeric_limits<float>::max())
+		std::cout << "float: impossible" << std::endl;
+	else
+		std::cout << "float: " << static_cast<float>(tmp) << "f" << std::endl;
+	std::cout << "double: " << static_cast<double>(tmp) << std::endl;
+
 }
 
 void ConvertValue(const std::string& str, ScalarConverter::Type &type)
@@ -189,86 +261,13 @@ void ConvertValue(const std::string& str, ScalarConverter::Type &type)
 	switch(type)
 	{
 		case ScalarConverter::CHAR:
-		{
 			caseChar(str); break;
-			/*char c = str[0];
-			std::cout << "char: " << c << std::endl;
-			std::cout << "int: " << static_cast<int>(c) << std::endl;
-			std::cout << std::fixed << std::setprecision(1);
-			std::cout << "float: " << static_cast<float>(c) << "f" << std::endl;
-			std::cout << "double: " << static_cast<double>(c) << std::endl;
-			break;*/
-		}
 		case ScalarConverter::INT:
-		{
-			long tmp = std::strtol(str.c_str(), NULL, 10);
-			if (tmp < std::numeric_limits<int>::min() || tmp > std::numeric_limits<int>::max())
-			{
-				std::cout << "char: impossible" << std::endl;
-				std::cout << "int: impossible" << std::endl;
-			}
-			else
-			{
-				int i = static_cast<int>(tmp);
-				if ((i >= 0 && i < 32)  || i == 127)
-					std::cout << "char: Non displayable" << std::endl;
-				else if (i < 0 || i > 127)
-					std::cout << "char: impossible" << std::endl;
-				else
-					std::cout << "char: '" << static_cast<char>(i) << "'" << std::endl;
-
-				std::cout << "int: " << i << std::endl;
-
-			}
-			std::cout << std::fixed << std::setprecision(1);
-			std::cout << "float: " << static_cast<float>(tmp) << "f" << std::endl;
-			std::cout << "double: " << static_cast<double>(tmp) << std::endl;
-			break;
-		}
+			caseInt(str); break;
 		case ScalarConverter::FLOAT:
-		{
-			float tmp = std::strtof(str.c_str(), NULL);
-
-			if (std::isnan(tmp) || tmp < 0 || tmp > 127)
-				std::cout << "char: impossible" << std::endl;
-			else if (!std::isprint(static_cast<char>(tmp)))
-				std::cout << "char: Non displayable" << std::endl;
-			else
-				std::cout << "char: '" << static_cast<char>(tmp) << "'" << std::endl;
-			if (std::isnan(tmp) || tmp < std::numeric_limits<int>::min() || tmp > std::numeric_limits<int>::max())
-				std::cout << "int: impossible" << std::endl;
-			else
-				std::cout << "int: " << static_cast<int>(tmp) << std::endl;
-			std::cout << std::fixed << std::setprecision(1);
-			if (std::abs(tmp) > std::numeric_limits<float>::max())
-				std::cout << "float: impossible" << std::endl;
-			else
-				std::cout << "float: " << static_cast<float>(tmp) << "f" << std::endl;
-			std::cout << "double: " << static_cast<double>(tmp) << std::endl;
-			break;
-		}
+			caseFloat(str); break;
 		case ScalarConverter::DOUBLE:
-		{
-			double tmp = std::strtod(str.c_str(), NULL);
-
-			if (std::isnan(tmp) || tmp < 0 || tmp > 127)
-				std::cout << "char: impossible" << std::endl;
-			else if (!std::isprint(static_cast<char>(tmp)))
-				std::cout << "char: Non displayable" << std::endl;
-			else
-				std::cout << "char: '" << static_cast<char>(tmp) << "'" << std::endl;
-			if (std::isnan(tmp) || tmp < std::numeric_limits<int>::min() || tmp > std::numeric_limits<int>::max())
-				std::cout << "int: impossible" << std::endl;
-			else
-				std::cout << "int: " << static_cast<int>(tmp) << std::endl;
-			std::cout << std::fixed << std::setprecision(1);
-			if (std::abs(tmp) > std::numeric_limits<float>::max())
-				std::cout << "float: impossible" << std::endl;
-			else
-				std::cout << "float: " << static_cast<float>(tmp) << "f" << std::endl;
-			std::cout << "double: " << static_cast<double>(tmp) << std::endl;
-			break;
-		}
+			caseDouble(str); break;
 		default:
 			std::cout << "Not a valid type" << std::endl;
 	}
