@@ -6,13 +6,13 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 16:23:14 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/09/26 07:41:18 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/09/30 14:36:54 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
-#include "Whatever.hpp"
+#include "whatever.hpp"
 
 int main()
 {

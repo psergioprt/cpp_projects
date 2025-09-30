@@ -1,42 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Whatever.hpp                                       :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/25 16:23:09 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/09/25 16:45:58 by pauldos-         ###   ########.fr       */
+/*   Created: 2025/09/30 14:39:11 by pauldos-          #+#    #+#             */
+/*   Updated: 2025/09/30 16:03:03 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WHATEVER_HPP
-#define WHATEVER_HPP
+#ifndef ITER_HPP
+#define ITER_HPP
+
+#include <iostream>
 
 template <typename T>
-void swap(T& x, T& y)
+void iter(T arr[], size_t length, void (*f) (T &))
 {
-	T temp;
-
-	temp = x;
-	x = y;
-	y = temp;
+	for (size_t i = 0; i < length; i++)
+		f(arr[i]);
 }
 
 template <typename T>
-T min(const T& a, const T& b)
+void iter(T arr[], size_t length, void (*f) (T const &))
 {
-	if (a < b)
-		return a;
-	return b;
+	for (size_t i = 0; i < length; i++)
+		f(arr[i]);
 }
 
 template <typename T>
-T max(const T& a, const T& b)
+void print_element(T const& x)
 {
-	if (a > b)
-		return a;
-	return b;
+	std::cout << x << std::endl;
 }
 
 #endif
