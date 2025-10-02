@@ -6,12 +6,13 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 11:04:33 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/10/02 08:46:45 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/10/02 10:56:31 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ARRAY_HPP
 #define ARRAY_HPP
+#include <exception>
 
 template<typename T>
 class Array
