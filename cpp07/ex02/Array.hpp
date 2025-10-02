@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 11:04:33 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/10/01 17:12:32 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/10/02 08:46:45 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,11 @@ class Array
 		T* _data;
 
 	public:
-		Array() : _size(0), _data(NULL){ std::cout << "Default Constructor called\n"; }
-		Array(unsigned int n) : _size(n), _data(new T[n]()){ std::cout << "Constructor called with size 5\n"; }
-		~Array() { std::cout << "Destructor called\n"; delete [] _data; }
+		Array() : _size(0), _data(NULL){}
+		Array(unsigned int n) : _size(n), _data(new T[n]()){}
+		~Array() { delete [] _data;}
 		Array(const Array &other) : _size(other._size), _data(NULL)
 		{
-			std::cout << "Copy constructor called with size: " << _size << std::endl;
 			if (_size > 0)
 			{
 				_data = new T[_size];
@@ -36,7 +35,6 @@ class Array
 		}
 		Array& operator=(const Array& other)
 		{
-			std::cout << "Assignement operator called with size " << _size << std::endl; 
 			if (this != &other)
 			{
 				delete [] _data;
@@ -49,16 +47,25 @@ class Array
 			}
 			return *this;
 		}
+		class OutOfBoundsException : public std::exception
+		{
+			public:
+				const char* what() const throw()
+				{
+					return "Index out of bounds";
+				}
+		};
 		T& operator[](unsigned int index)
 		{
 			if (index >= _size)
-				throw std::out_of_range("Index out of bounds");
+				throw OutOfBoundsException();
 			return _data[index];
 		}
 		const T& operator[](unsigned int index) const
 		{
 			if (index >= _size)
-				throw std::out_of_range("Index out of bounds");
+				throw OutOfBoundsException();
+			return _data[index];
 		}
 
 		unsigned int size() const;
