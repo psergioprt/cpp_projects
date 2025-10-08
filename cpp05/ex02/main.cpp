@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 11:19:57 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/09/23 11:19:59 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/10/08 13:24:23 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ int main()
 	std::cout << "* SHRUBBERY CREATION FORM *" << std::endl;
 	try
 	{
-		Bureaucrat paul("Paul", 146);
+		Bureaucrat b1("Paul", 110);
 		ShrubberyCreationForm form("garden");
-		paul.signForm(form);
-		form.execute(paul);
+		b1.signForm(form);
+		form.execute(b1);
 	}
 	catch (std::exception& e)
 	{
@@ -39,10 +39,10 @@ int main()
 	std::cout << "ROBOTOMY REQUEST FORM" << std::endl;
 	try
 	{
-		Bureaucrat simon("Simon", 45);
+		Bureaucrat b2("Simon", 45);
 		RobotomyRequestForm robot("Bender");
-		simon.signForm(robot);
-		robot.execute(simon);
+		b2.signForm(robot);
+		robot.execute(b2);
 	}
 	catch (std::exception& e)
 	{
@@ -54,10 +54,10 @@ int main()
 
 	try
 	{
-		Bureaucrat george("George", 4);
+		Bureaucrat b3("George", 4);
 		PresidentialPardonForm presidential("Joe Doe");
-		george.signForm(presidential);
-		presidential.execute(george);
+		b3.signForm(presidential);
+		presidential.execute(b3);
 	}
 	catch (std::exception& e)
 	{

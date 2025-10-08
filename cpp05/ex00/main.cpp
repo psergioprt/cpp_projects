@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 11:13:22 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/09/23 11:13:29 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/10/08 12:07:29 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main()
 {
 	try
 	{
-		Bureaucrat b1("Paulo", 50);
+		Bureaucrat b1("Dave", 50);
 		for (int i = 0; i < 20; i++)
 			b1.incrementGrade();
 		std::cout << b1 << std::endl;
@@ -31,20 +31,17 @@ int main()
 	{
 		std::cerr << "Exception: " << e.what() << std::endl;
 	}
-
 	std::cout << "--- Overgraded ---" << std::endl;
 	try
 	{
-		Bureaucrat b2("Sérgio", 151);
+		Bureaucrat b2("Stuart", 151);
 		std::cout << b2 << std::endl;
 	}
 	catch (std::exception& e)
 	{
 		std::cerr << "Exception: " << e.what() << std::endl;
 	}
-
 	std::cout << "--- Downgraded ---" << std::endl;
-
 	try
 	{
 		Bureaucrat b3("William", 10);

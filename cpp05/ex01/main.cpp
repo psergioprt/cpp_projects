@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 11:14:23 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/09/23 11:14:35 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/10/08 13:29:57 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,29 +17,26 @@
 
 int main()
 {
-	int value = 151;
 	try
 	{
-		Form f0("SS 1b", value, 6);
+		Form f0("SS 1b", 151, 6);
 	}
 	catch (std::exception& e)
 	{
 		std::cerr << "ERROR: " << e.what() << std::endl;
 	}
-
 	try
 	{
-		Form f0("SS 1b", 56, value);
+		Form f0("SS 1b", 56, 0);
 	}
 	catch (std::exception& e)
 	{
 		std::cerr << "ERROR: " << e.what() << std::endl;
 	}
-
 	try
 	{
-		Bureaucrat b1("Michael", 50);
-		Form f1("Tax form 35b", 41, 45);
+		Bureaucrat b1("Michael", 41);
+		Form f1("Tax form 35b", 41, 40);
 
 		std::cout << f1 << std::endl;
 		b1.signForm(f1);
