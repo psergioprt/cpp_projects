@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 11:22:39 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/09/23 11:22:42 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/10/09 13:05:17 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,12 @@ class AForm
 		};
 
 		class NotAllowedToSignException : public std::exception
+		{
+			public:
+				virtual const char * what() const throw();
+		};
+
+		class NotAllowedToExecuteException : public std::exception
 		{
 			public:
 				virtual const char * what() const throw();

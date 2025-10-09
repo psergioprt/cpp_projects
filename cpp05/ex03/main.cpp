@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 11:25:01 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/09/23 11:25:04 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/10/09 13:36:46 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,10 @@ int main()
 	{
 		Intern Mary;
 		
-		std::cout << "Subject output" << std::endl;
 		form1 = Mary.makeForm("ShrubberyCreationForm", "Home");
 		form2 = Mary.makeForm("RobotomyRequestForm", "Bender");
 		form3 = Mary.makeForm("PresidentialPardonForm", "Kruger");
-		invalidForm = Mary.makeForm("InvalidForm", "Joe");
-
 		std::cout << std::endl;
-		std::cout << "DEBUG: This lines won't be seen if an exception was thrown before" << std::endl;
 		std::cout << "Form1 created: " << form1->getName() << std::endl;
 		std::cout << "Form2 created: " << form2->getName() << std::endl;
 		std::cout << "Form3 created: " << form3->getName() << std::endl;
@@ -49,6 +45,19 @@ int main()
 	{
 		std::cout << "Exception error: " << e.what() << std::endl;
 	}
+	std::cout << std::endl;
+	try
+	{
+		Intern Joe;
+
+		invalidForm = Joe.makeForm("InvalidForm", "Invalid");
+		std::cout << "InvalidForm created: " << invalidForm->getName() << std::endl;
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << "Exception error: " << e.what() << std::endl;
+	}
+
 	delete form1;
 	delete form2;
 	delete form3;

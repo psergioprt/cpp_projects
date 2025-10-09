@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 11:16:48 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/09/23 11:16:50 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/10/09 12:50:44 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,11 @@ const char * AForm::NotAllowedToSignException::what() const throw()
 	return "Form cannot be signed. Grade too low!";
 }
 
+const char * AForm::NotAllowedToExecuteException::what() const throw()
+{
+	return "Form cannot be executed. Grade too low!";
+}
+
 void AForm::beSigned(const Bureaucrat& bureaucrat)
 {
 	if (bureaucrat.getGrade() > this->_signGrade)
@@ -90,10 +95,8 @@ void AForm::beSigned(const Bureaucrat& bureaucrat)
 
 void AForm::execute(const Bureaucrat& executor) const
 {
-	if (!getIsSigned())
-		throw NotAllowedToSignException();
-	if (executor.getGrade() > getExecuteGrade())
-		throw GradeTooLowException();
+	if (!getIsSigned() || executor.getGrade() > getExecuteGrade())
+		throw NotAllowedToExecuteException();
 	beExecuted(executor);
 }
 

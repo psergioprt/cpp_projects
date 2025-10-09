@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 11:16:57 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/09/23 11:17:00 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/10/09 12:51:16 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,13 @@ class AForm
 			public:
 				virtual const char * what() const throw();
 		};
-
+		
+		class NotAllowedToExecuteException : public std::exception
+		{
+			public:
+				virtual const char * what() const throw();
+		};
+		
 		void beSigned(const Bureaucrat& bureaucrat);
 		void execute(const Bureaucrat& executer) const;
 		virtual void beExecuted(const Bureaucrat& executer) const = 0;
