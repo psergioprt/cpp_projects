@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 11:14:23 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/10/08 13:29:57 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/10/10 17:34:52 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main()
 	}
 	catch (std::exception& e)
 	{
-		std::cerr << "ERROR: " << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 	try
 	{
@@ -31,7 +31,7 @@ int main()
 	}
 	catch (std::exception& e)
 	{
-		std::cerr << "ERROR: " << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 	try
 	{
@@ -44,7 +44,7 @@ int main()
 	}
 	catch (std::exception& e)
 	{
-		std::cerr << "ERROR: " << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 11:21:16 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/09/23 11:21:18 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/10/10 17:30:38 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ PresidentialPardonForm::~PresidentialPardonForm(){}
 
 void PresidentialPardonForm::beExecuted(const Bureaucrat& executor) const
 {
-	std::cout << executor.getName() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+	(void)executor;
+	std::cout << _target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }

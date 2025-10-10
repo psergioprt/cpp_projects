@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 11:18:40 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/09/23 11:18:45 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/10/10 17:31:42 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ RobotomyRequestForm::~RobotomyRequestForm(){}
 void RobotomyRequestForm::beExecuted(const Bureaucrat& executor) const
 {
 	(void) executor;
-	std::cout << "DRILLING NOISES" << std::endl;
+	std::cout << "💥 BZZZZZT!! VRRRRRRRR!!! 💥" << std::endl;
 	if (rand() % 2)
 	{
 		std::cout << this->_target << " has been robotomized successfully 50% of the time" << std::endl;

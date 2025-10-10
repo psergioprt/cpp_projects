@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 11:27:36 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/09/30 11:41:14 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/10/10 17:10:23 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,87 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other)
 
 ScalarConverter::~ScalarConverter(){}
 
+/*void printPseudoLiteral(const std::string& value)
+{
+	size_t len = value.length();
+	if (len > 0 && value[len - 1] == 'f')
+	{
+		std::cout << "char: impossible\nint: impossible\nfloat: " << value 
+			<< "\ndouble: " << value.substr(0, value.size() - 1) << std::endl;
+	}
+	else
+	{
+		std::cout << "char: impossible\nint: impossible\nfloat: "
+			<< value << "\ndouble: " << value << std::endl;
+    }
+}*/
+
+/*bool handlePseudoLiterals(const std::string& str)
+{
+	if (str.empty())
+		return false;
+	if (str == "nan" || str == "nanf")
+	{
+		printPseudoLiteral("nanf");
+		return true;
+	}
+	if (str == "+inf" || str == "+inff" || str == "inf" || str == "inff")
+	{
+		printPseudoLiteral("+inff");
+		return true;
+	}
+	if (str == "-inf" || str == "-inff")
+	{
+		printPseudoLiteral("-inff");
+		return true;
+	}
+	return false;
+}*/
+
 bool handlePseudoLiterals(const std::string& str)
+{
+	if (str.empty())
+		return false;
+
+	float f = 0.0f / 0.0f;
+	double d = 0.0 / 0.0;
+
+	if (str == "nan" || str == "nanf")
+	{
+		f = 0.0f / 0.0f;
+		d = 0.0 / 0.0;
+	}
+	else if (str == "+inf" || str == "+inff" || str == "inf" || str == "inff")
+	{
+		f = std::numeric_limits<float>::infinity();
+		d = std::numeric_limits<double>::infinity();
+	}
+	else if (str == "-inf" || str == "-inff")
+	{
+		f = -std::numeric_limits<float>::infinity();
+		d = -std::numeric_limits<double>::infinity();
+	}
+	else
+		return false;
+
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+
+	if (std::isnan(f))
+		std::cout << "float: "
+	if (std::isinf(f) && f > 0)
+		std::cout << "float: +" << f << std::endl;
+	else
+		std::cout << "float: " << f << std::endl;
+
+	if (std::isinf(d) && d > 0)
+		std::cout << "double: +" << d << std::endl;
+	else
+		std::cout << "double: " << d << std::endl;
+	return true;
+}
+
+/*bool handlePseudoLiterals(const std::string& str)
 {
 	if (str.empty())
 		return false;
@@ -54,7 +134,7 @@ bool handlePseudoLiterals(const std::string& str)
 		return true;
 	}
 	return false;
-}
+}*/
 
 bool handleNonDisplayableCharacters(const std::string& str)
 {

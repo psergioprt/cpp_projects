@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 11:19:57 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/10/09 12:55:49 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/10/10 17:28:56 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,12 @@ int main()
 	}
 	
 	std::cout << std::endl;
-	std::cout << "* PRESIDENTIAL PARDON FORM (25/5)*" << std::endl;
+	std::cout << "* PRESIDENTIAL PARDON FORM (25/5) *" << std::endl;
 
 	try
 	{
 		Bureaucrat b3("George", 2);
-		PresidentialPardonForm presidential("Joe Doe");
+		PresidentialPardonForm presidential("John Doe");
 		b3.signForm(presidential);
 		b3.executeForm(presidential);
 	}

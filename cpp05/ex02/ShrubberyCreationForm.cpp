@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 11:19:28 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/10/09 12:27:56 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/10/10 17:33:02 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void ShrubberyCreationForm::beExecuted(const Bureaucrat& executor) const
 		std::cerr << "Could not open file" << std::endl;
 		return ;
 	}
+	std::cout << "[" << _target << "_shrubbery] file has been created!" << std::endl;
 	outfile << "   ^   " << std::endl;
 	outfile << "  ^^^  " << std::endl;
 	outfile << " ^^^^^ " << std::endl;

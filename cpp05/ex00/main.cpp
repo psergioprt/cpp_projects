@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 11:13:22 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/10/08 12:07:29 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/10/10 10:14:46 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int main()
 	}
 	catch (std::exception& e)
 	{
-		std::cerr << "Exception: " << e.what() << std::endl;
+		std::cout << "Exception: " << e.what() << std::endl;
 	}
 	std::cout << "--- Overgraded ---" << std::endl;
 	try
@@ -39,7 +39,7 @@ int main()
 	}
 	catch (std::exception& e)
 	{
-		std::cerr << "Exception: " << e.what() << std::endl;
+		std::cout << "Exception: " << e.what() << std::endl;
 	}
 	std::cout << "--- Downgraded ---" << std::endl;
 	try
@@ -51,7 +51,7 @@ int main()
 	}
 	catch (std::exception& e)
 	{
-		std::cerr << "Exception: " << e.what() << std::endl;
+		std::cout << "Exception: " << e.what() << std::endl;
 	}
 	return 0;
 }
