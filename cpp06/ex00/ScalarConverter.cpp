@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 11:27:36 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/10/15 12:54:45 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/10/15 17:10:46 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 #include <cerrno>
 #include <limits>
 #include <cstdlib>
-#include <iomanip>
 #include <cmath>
-#include <climits>
+#include <iomanip>
 #include "ScalarConverter.hpp"
-#include <sstream>
 
 ScalarConverter::ScalarConverter(){}
 
@@ -51,7 +49,6 @@ bool	handlePseudoLiterals(const std::string& str)
 	std::cout << "char: impossible" << std::endl;
 	std::cout << "int: impossible" << std::endl;
 	float f = static_cast<float>(d);
-	std::cout << std::fixed;
 	if (std::isnan(d))
 	{
 		std::cout << "float: " << f << "f" << std::endl;
@@ -137,7 +134,7 @@ bool detectFloatDoubleType(const std::string& str, ScalarConverter::Type &type)
 				return false;
 			if (k + 1 >= str.length())
 				return false;
-			if (!(isdigit(str[k +  1]) || str[k + 1] == '+' || str[k + 1] == '-'))
+			if (!(isdigit(str[k + 1]) || str[k + 1] == '+' || str[k + 1] == '-'))
 				return false;
 			count_e++;
 		}
@@ -197,7 +194,7 @@ void caseInt(const std::string& str)
 	long tmp = std::strtol(str.c_str(), NULL, 10);
 	if (tmp < std::numeric_limits<int>::min() || tmp > std::numeric_limits<int>::max())
 	{
-		std::cout << "char: impossible" << std::endl;
+		std::cout << "char: out of ASCII range" << std::endl;
 		std::cout << "int: impossible" << std::endl;
 	}
 	else
@@ -211,6 +208,7 @@ void caseInt(const std::string& str)
 			std::cout << "char: '" << static_cast<char>(i) << "'" << std::endl;
 		std::cout << "int: " << i << std::endl;
 	}
+	std::cout << std::fixed << std::setprecision(1);
 	std::cout << "float: " << static_cast<float>(tmp) << "f" << std::endl;
 	std::cout << "double: " << static_cast<double>(tmp) << std::endl;
 }
@@ -237,6 +235,7 @@ void caseFloat(const std::string& str)
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << static_cast<int>(tmp) << std::endl;
+	std::cout << std::fixed << std::setprecision(1);
 	std::cout << "float: " << tmp << "f" << std::endl;
 	std::cout << "double: " << static_cast<double>(tmp) << std::endl;
 }
@@ -262,6 +261,7 @@ void caseDouble(const std::string& str)
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << static_cast<int>(tmp) << std::endl;
+	std::cout << std::fixed << std::setprecision(1);
 	std::cout << "float: " << static_cast<float>(tmp) << "f" << std::endl;
 	std::cout << "double: " << tmp << std::endl;
 }

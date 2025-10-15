@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 12:27:54 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/09/23 16:09:06 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/10/15 17:52:48 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main()
 	data.id = 42;
 	data.name = "Test object";
 
-	std::cout << "\n[Origina Data]" << std::endl;
+	std::cout << "\n[Original Data]" << std::endl;
 	std::cout << "Original address: " << &data << std::endl;
 	std::cout << "Original id: " << data.id << std::endl;
 	std::cout << "Original name: " << data.name << std::endl;
