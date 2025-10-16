@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 15:00:11 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/10/01 10:20:48 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/10/16 17:46:45 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,6 @@ void add_3(T &nb)
 	nb += 3;
 }
 
-/*void to_lower(char &nb)
-{
-	if (nb >= 65 && nb <= 90)
-		nb += 32;
-}*/
-
 void to_lower(char &c)
 {
 	unsigned char uc = static_cast<unsigned char>(c);
@@ -46,12 +40,12 @@ void print_element(T const& x)
 	std::cout << x << std::endl;
 }
 
-class Yupii
+class Element
 {
 	private:
 		int n;
 	public:
-		Yupii(int n = 0) : n(n){}
+		Element(int n = 0) : n(n){}
 		int get() const
 		{
 			return n;
@@ -62,18 +56,18 @@ class Yupii
 		}
 };
 
-std::ostream &operator<<(std::ostream &out, Yupii const &a)
+std::ostream &operator<<(std::ostream &out, Element const &a)
 {
 	out << a.get();
 	return out;
 }
 
-void Yupii_add3(Yupii &a)
+void element_add3(Element &a)
 {
 	a.add3();
 }
 
-void Yupii_print(Yupii const &a)
+void element_print(Element const &a)
 {
 	std::cout << a << std::endl;
 }
@@ -106,15 +100,18 @@ int main()
 	iter(arr3, len, print_element);
 
 	std::cout << "\nCHAR ARRAY" << std::endl;
-	char arr4[] = "Hello";
+	char arr4[] = "HeLlO";
 	iter(arr4, strlen(arr4), to_lower);
+	std::cout << "Print the string directly" << std::endl;
 	std::cout << arr4 << std::endl;
-	
-	std::cout << "\nCLASS TYPE ARRAY (custom type Yupii) UPDATED(+3)" << std::endl;
-	Yupii aarr[] = { Yupii(-3), Yupii(0), Yupii(3)};
+	std::cout << "Print the string using iter function" << std::endl;
+	iter(arr4, strlen(arr4), print_element);
+
+	std::cout << "\nCLASS TYPE ARRAY (custom type element) UPDATED(+3)" << std::endl;
+	Element aarr[] = { Element(-3), Element(0), Element(3)};
 	len = sizeof(aarr) / sizeof(aarr[0]);
-	iter(aarr, len, Yupii_add3);
-	iter(aarr, len, Yupii_print);
+	iter(aarr, len, element_add3);
+	iter(aarr, len, element_print);
 
 	return 0;
 }
