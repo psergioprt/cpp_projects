@@ -6,14 +6,15 @@
 /*   By: pauldos- <pauldos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 09:19:30 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/10/20 11:57:22 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/10/20 17:04:01 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
-#include "Span.hpp"
 #include <climits>
 #include <iostream>
+#include <algorithm>
+#include "Span.hpp"
 
 Span::Span() : _N(0){}
 

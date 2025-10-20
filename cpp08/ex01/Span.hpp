@@ -6,14 +6,13 @@
 /*   By: pauldos- <pauldos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 08:11:31 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/10/20 10:43:13 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/10/20 16:45:26 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SPAN_HPP
 #define SPAN_HPP
 
-#include <algorithm>
 #include <iterator>
 #include <exception>
 #include <vector>

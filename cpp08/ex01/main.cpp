@@ -6,15 +6,16 @@
 /*   By: pauldos- <pauldos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 10:30:35 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/10/20 12:00:00 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/10/20 16:48:42 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
-#include "Span.hpp"
 #include <ctime>
+#include <cstdlib>
 #include <climits>
+#include "Span.hpp"
 
 int main()
 {
