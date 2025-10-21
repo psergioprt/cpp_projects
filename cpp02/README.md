@@ -1,9 +1,8 @@
-# CPP Module 02
+## 🧮 CPP Module 02 – Operator Overloading & Fixed-Point Numbers
 
-Implementation of a custom fixed-point number class:
-- Overloading arithmetic operators (`+`, `-`, `*`, `/`)
-- Comparison operators (`<`, `>`, `==`, etc.)
-- Pre and post increment/decrement operators
-- Static methods for `min` and `max`
+**Description:**  
+Introduced to operator overloading and class design best practices. Built a custom **Fixed-point number class**, implementing arithmetic, comparison, and increment/decrement operators.  
+Focused on understanding canonical form and C++ arithmetic precision handling.
 
-Goal: Understand operator overloading and class utility functions while simulating fixed-point precision.
+**Skills:**  
+Operator overloading, canonical form (Orthodox Canonical Form), constructors/destructors, encapsulation
