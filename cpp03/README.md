@@ -1,9 +1,8 @@
-# CPP Module 03
+## 🤖 CPP Module 03 – Inheritance & Class Hierarchies
 
-Explores inheritance and runtime polymorphism:
-- Creating a base class and several derived classes
-- Using virtual methods and overriding
-- Managing derived objects via base class pointers
-- Understanding object slicing and dynamic dispatch
+**Description:**  
+Explored inheritance and polymorphic behavior by implementing the **ClapTrap** family of classes (`ClapTrap`, `ScavTrap`, `FragTrap`, `DiamondTrap`).  
+Practiced constructor chaining, attribute inheritance, and method overriding.
 
-Demonstrates how to build reusable and extensible class hierarchies.
+**Skills:**  
+Inheritance, constructors/destructors in hierarchies, method overriding, OOP design
