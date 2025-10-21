@@ -1,5 +1,3 @@
-paulo
-
 ## 🧩 CPP Module 00 – Basics of C++ Syntax & Classes
 
 **Description:**  
