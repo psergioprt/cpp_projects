@@ -1,20 +1,8 @@
-# 🔐 Born2beroot
+## 🧩 CPP Module 00 – Basics of C++ Syntax & Classes
 
-**Born2beroot** is a foundational system administration project from 42 School.  
-The goal is to install and configure a secure virtual machine, applying key principles of system hardening, user and group management, and service monitoring.
+**Description:**  
+Introduction to C++ syntax and object-oriented programming. Focused on basic class creation, encapsulation, and string/stream manipulation.  
+Implemented a simple **PhoneBook** program using classes, constructors, and basic I/O to reinforce data handling and code organization.
 
----
-
-## 🧩 Project Overview
-
-This project involves:
-
-- Setting up a Linux VM (Debian or CentOS-based).
-- Partitioning the disk and configuring logical volume management (LVM).
-- Installing and configuring essential packages and services.
-- Implementing strict user and password policies.
-- Configuring a secure SSH server.
-- Setting up and using `sudo` with specific group privileges.
-- Automating system monitoring with the `monitoring.sh` script.
-- Enforcing firewall and network security configurations.
-- Creating detailed system logs and user rules.
+**Skills:**  
+C++ syntax, classes, methods, encapsulation, basic I/O streams
