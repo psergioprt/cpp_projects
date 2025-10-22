@@ -1,9 +1,7 @@
-# CPP Module 01
+## ⚙️ CPP Module 01 – Memory, Pointers & References
 
-Focuses on memory management and object lifecycle:
-- Stack vs Heap allocation
-- Constructors and destructors
-- Creating and deleting arrays of objects
-- Understanding memory leaks and object lifetimes
+**Description:**  
+Learned about dynamic memory allocation, references, and pointers in C++. Implemented small programs involving object creation on the stack and heap, and applied practical use cases like the **Zombie** exercises and **Harl filter** to manage object lifetimes and function pointers.
 
-Includes a simple class-based implementation that shows how to manage dynamically allocated memory safely.
+**Skills:**  
+Stack vs heap allocation, pointers, references, dynamic memory, function pointers

@@ -1,9 +1,8 @@
-# CPP Module 00
+## 🧩 CPP Module 00 – Basics of C++ Syntax & Classes
 
-Introduction to the C++ language and its syntax, focusing on the basics of:
-- Creating and using classes
-- Member functions
-- Namespaces and the standard library (`std::string`, `std::cout`, etc.)
-- Basic input/output and code organization
+**Description:**  
+Introduction to C++ syntax and object-oriented programming. Focused on basic class creation, encapsulation, and string/stream manipulation.  
+Implemented a simple **PhoneBook** program using classes, constructors, and basic I/O to reinforce data handling and code organization.
 
-Goal: Get comfortable with compiling C++ manually and understanding how C++ differs from C.
+**Skills:**  
+C++ syntax, classes, methods, encapsulation, basic I/O streams

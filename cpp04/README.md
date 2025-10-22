@@ -1,9 +1,8 @@
-# CPP Module 04
+## 🧠 CPP Module 04 – Polymorphism, Abstract Classes & Deep Copy
 
-Advanced OOP concepts and best practices:
-- Abstract base classes (pure virtual functions)
-- Deep copies with copy constructors and assignment operators
-- Virtual destructors
-- Composition of classes and dynamic memory management
+**Description:**  
+Focused on polymorphism, abstract classes, and deep copies through the **Animal** class hierarchy (`Animal`, `Cat`, `Dog`) with dynamic memory management using a **Brain** class.  
+Ensured correct copy behavior through deep copy constructors and destructors.
 
-Emphasizes the Rule of Three and safe resource handling, preparing for more complex C++ architectures.
+**Skills:**  
+Polymorphism, abstract classes, virtual functions, deep copy, memory management
