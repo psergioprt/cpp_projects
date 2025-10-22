@@ -1,16 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 11:42:55 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/10/22 12:10:41 by pauldos-         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "BitcoinExchange.hpp"
+#include <fstream>
+#include <iostream>
 
 BitcoinExchange::BitcoinExchange() : _value(0){}
 BitcoinExchange::BitcoinExchange(const int value) : _value(value){}
@@ -30,3 +20,22 @@ int BitcoinExchange::output() const
 	return _value;
 }
 
+int BitcoinExchange::multiply_by_rate() const
+{
+	return _value * 2;
+}
+
+void BitcoinExchange::open_file() const
+{
+	std::ifstream file("data.csv");
+	if (!file.is_open())
+	{
+		std::cerr << "Error reading file" << std::endl;
+	}
+	
+	int count_line = 0;
+	std::string line;
+	while (std::getline(file, line))
+		count_line++;
+	std::cout << "lines in data.csv file: " << count_line << std::endl;
+}

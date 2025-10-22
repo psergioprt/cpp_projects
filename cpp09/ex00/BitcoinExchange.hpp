@@ -1,17 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 11:29:55 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/10/22 12:29:03 by pauldos-         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-
-
 class BitcoinExchange
 {
 	private:
@@ -25,6 +11,6 @@ class BitcoinExchange
 		~BitcoinExchange();
 
 		int output() const;
+		int multiply_by_rate() const;
+		void open_file() const;
 };
-
-
