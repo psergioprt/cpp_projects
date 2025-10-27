@@ -1,16 +1,19 @@
+#include <string>
+
 class BitcoinExchange
 {
 	private:
-		int _value;
+		double _value;
 
 	public:
 		BitcoinExchange();
-		BitcoinExchange(const int value);
+		BitcoinExchange(const double value);
 		BitcoinExchange(const BitcoinExchange& other);
 		BitcoinExchange& operator=(const BitcoinExchange& other);
 		~BitcoinExchange();
 
-		int output() const;
-		int multiply_by_rate() const;
-		void open_file() const;
+		double output() const;
+		double multiply_by_rate() const;
+		void openExchangeRateFile(std::string exchangeRateFile) const;
+		void openFileToEvaluate(std::string fileToEvaluate) const;
 };
