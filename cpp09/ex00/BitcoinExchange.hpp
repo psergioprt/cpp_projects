@@ -3,8 +3,7 @@
 class BitcoinExchange
 {
 	private:
-		double _value;
-
+		std::map<std::string date, double value> _exchangeRates;
 	public:
 		BitcoinExchange();
 		BitcoinExchange(const double value);
