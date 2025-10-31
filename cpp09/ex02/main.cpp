@@ -1,12 +1,21 @@
-#include "PmergeMe.hpp"
 #include <iostream>
+#include <string>
+
+#include "PmergeMe.hpp"
 
 int main(int argc, char *argv[])
 {
-	if (argc != 2)
-		return (std::cout << "Requires two arguments", 1);
+	if (argc < 2)
+		return (std::cout << "Requires two arguments" << std::endl, 1);
+
 	PmergeMe a;
-	a.convert_value(argv[1]);
-	a.print_value();
-	return 0;	
+	for (int i = 1; i < argc; i++)
+	{
+		a.convertStringToInt(argv[i]);
+	//	a.printValue();
+	}
+	a.fillDeque();
+	a.printVector();
+	a.dequeSortAlgorithm();
+	return 0;
 }
