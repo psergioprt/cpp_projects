@@ -1,15 +1,15 @@
 #include "RPN.hpp"
 #include <iostream>
-#include <stack>
 
-int main()
+int main(int argc, char *argv[])
 {
+	if (argc != 2)
+	{
+		std::cerr << "Error: It must have 2 arguments" << std::endl;
+		return 0;
+	}
 	RPN a;
-	std::string n1 = "a";
-	std::string n2 = "3";
-
-	a.pushValues(n1);
-	a.pushValues(n2);
-
-	a.printValues();
+	a.splitToken(argv[1]);
+	a.printToken();
+	return 0;
 }
