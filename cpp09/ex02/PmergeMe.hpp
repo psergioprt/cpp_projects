@@ -22,6 +22,7 @@ class PmergeMe
 		void fillDeque();
 		void dequeSortAlgorithm();
 		void compareAndPush(int first, int second, std::deque<int>& max, std::deque<int>& min);
+		void recursiveSortAlgorithm(std::deque<int>& d);
 };
 
 #endif

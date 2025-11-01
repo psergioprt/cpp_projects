@@ -59,8 +59,8 @@ void PmergeMe::dequeSortAlgorithm()
 		_d.pop_front();
 		second = _d.front();
 		_d.pop_front();
+		compareAndPush(first, second, max, min);
 	}
-	compareAndPush(first, second, max, min);
 	if (odd)
 	{
 		max.push_back(_d.front());
@@ -71,6 +71,8 @@ void PmergeMe::dequeSortAlgorithm()
 	for (size_t i = 0; i < min.size(); i++)
 		std::cout << "min[" << i << "] => " << min[i] << std::endl;
 }
+
+
 
 void PmergeMe::compareAndPush(int first, int second, std::deque<int>& max, std::deque<int>& min)
 {
@@ -87,3 +89,5 @@ void PmergeMe::compareAndPush(int first, int second, std::deque<int>& max, std::
 		std::cout << "first: " << first << std::endl;
 		std::cout << "second: " << second << std::endl;
 }
+
+void PmergeMe::
