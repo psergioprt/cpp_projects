@@ -70,6 +70,7 @@ void PmergeMe::dequeSortAlgorithm()
 		std::cout << "max[" << i << "] => " << max[i] << std::endl;
 	for (size_t i = 0; i < min.size(); i++)
 		std::cout << "min[" << i << "] => " << min[i] << std::endl;
+	recursiveSort(max);
 }
 
 
@@ -90,4 +91,49 @@ void PmergeMe::compareAndPush(int first, int second, std::deque<int>& max, std::
 		std::cout << "second: " << second << std::endl;
 }
 
-void PmergeMe::
+void PmergeMe::recursiveSort(std::deque<int>& d)
+{
+	if (d.size() <= 1)
+		return;
+	
+	std::deque<int>max;
+	std::deque<int>min;
+	
+	
+	int first;
+	int second;
+	size_t len = d.size() / 2;
+	bool odd = false;
+	if (d.size() % 2 != 0)
+		odd = true;
+	for (size_t i = 0; i < len; i++)
+	{
+		first = d.front();
+		d.pop_front();
+		second = d.front();
+		d.pop_front();
+		compareAndPush(first, second, max, min);
+	}
+	if (odd)
+	{
+		max.push_back(d.front());
+		d.pop_front();
+	}
+	if (!d.empty())
+	{
+		max.push_back(d.front());
+		d.pop_front();
+	}
+	recursiveSort(max);
+
+	d.clear();
+
+	for (size_t i = 0; i < max.size(); i++)
+		d.push_back(max[i]);
+
+	for (size_t i = 0; i < min.size(); i++)
+		d.push_back(min[i]);
+	for (size_t i = 0; i < d.size(); i++)
+		std::cout << d[i] << " ";
+	std::cout << std::endl;
+}
