@@ -1,0 +1,145 @@
+The previous code:
+
+PmergeMe::PmergeMe() : _number(0){}
+
+PmergeMe::~PmergeMe(){}
+
+void PmergeMe::printValue() const
+{
+	std::cout << "Number => " << _number << std::endl;
+}
+
+int PmergeMe::convertStringToInt(const std::string& value)
+{
+	for (size_t i = 0; i < value.size(); i++)
+	{
+		if (!isdigit(value[i]))
+		{
+			std::cout << "Error: Not a digit!" << std::endl;
+			return 0;
+		}
+	}
+	_number = atoi(value.c_str());
+	_v.push_back(_number);
+	return _number;
+}
+
+void PmergeMe::printVector() const
+{
+	std::cout << "Before: ";
+	for (size_t i = 0; i < _v.size(); i++)
+		std::cout << _v[i] << " ";
+	std::cout << std::endl;
+}
+
+void PmergeMe::fillDeque()
+{
+	_d.assign(_v.begin(), _v.end());
+}
+
+void PmergeMe::dequeSortAlgorithm()
+{
+	std::deque<int> max;
+	std::deque<int> min;
+	int first;
+	int second;
+	if (_d.empty())
+		return (void)(std::cout << "list is empty" << std::endl);
+	if (_d.size() == 1)
+	{
+		std::cout << _d.front() << std::endl;
+		std::cout << "has only one value" << std::endl;
+		return;
+	}
+	size_t len = _d.size() / 2;
+	bool odd = false;
+	if (_d.size() % 2 != 0)
+		odd = true;
+	for (size_t i = 0; i < len; i++)
+	{
+		first = _d.front();
+		_d.pop_front();
+		second = _d.front();
+		_d.pop_front();
+		compareAndPush(first, second, max, min);
+	}
+	if (odd && !_d.empty())
+	{
+		max.push_back(_d.front());
+		_d.pop_front();
+	}
+	recursiveSortDeque(max);
+	for (size_t i = 0; i < min.size(); i++)
+		insertInOrderDeque(max, min[i]);
+	_d = max;
+	std::cout << "Final sorted deque: ";
+	for (size_t i = 0; i < _d.size(); i++)
+		std::cout << _d[i] << " ";
+	std::cout << std::endl;
+}
+
+
+
+void PmergeMe::compareAndPush(int first, int second, std::deque<int>& max, std::deque<int>& min)
+{
+		if (first > second)
+		{
+			max.push_back(first);
+			min.push_back(second);
+		}
+		else
+		{
+			max.push_back(second);
+			min.push_back(first);
+		}
+}
+
+void PmergeMe::recursiveSortDeque(std::deque<int>& d)
+{
+	if (d.size() <= 1)
+		return;
+	
+	std::deque<int>max;
+	std::deque<int>min;
+
+	int first;
+	int second;
+	size_t len = d.size() / 2;
+	bool odd = false;
+	if (d.size() % 2 != 0)
+		odd = true;
+	for (size_t i = 0; i < len; i++)
+	{
+		first = d.front();
+		d.pop_front();
+		second = d.front();
+		d.pop_front();
+		compareAndPush(first, second, max, min);
+	}
+	if (odd)
+	{
+		max.push_back(d.front());
+		d.pop_front();
+	}
+	recursiveSortDeque(max);
+
+	d.clear();
+
+	for (size_t i = 0; i < max.size(); i++)
+		d.push_back(max[i]);
+	for (size_t i = 0; i < min.size(); i++)
+		insertInOrderDeque(d, min[i]);
+}
+
+void PmergeMe::insertInOrderDeque(std::deque<int>& d, int value)
+{
+	for (std::deque<int>::iterator it = d.begin(); it != d.end(); ++it)
+	{
+		if (value < *it)
+		{
+			d.insert(it, value);
+			return;
+		}
+	}
+	d.push_back(value);
+}
