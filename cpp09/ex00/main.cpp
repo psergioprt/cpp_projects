@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 10:09:09 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/10/31 10:09:16 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/11/04 15:35:59 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 {
 	if (argc != 2)
 	{
-		std::cerr << "Error: could not open file" << std::endl;
+		std::cerr << "Error: could not open file." << std::endl;
 		return 1;
 	}
 	BitcoinExchange c;

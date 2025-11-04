@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:58:07 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/10/29 18:55:29 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/11/04 16:57:20 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ void BitcoinExchange::openExchangeRateFile(std::string exchangeRateFile)
 	{
 		if (line.empty())
 		{
-			std::cerr << "Error: bad input " << line << std::endl;
+			std::cerr << "Error: bad input => " << line << std::endl;
 			continue;
 		}
 		size_t pos = line.find(',');
@@ -200,6 +200,6 @@ void BitcoinExchange::openFileToEvaluate(std::string fileToEvaluate)
 
 		double rate = getRateForDate(date);
 		double result = value * rate;
-		std::cout << date << " => " << value << " * " << rate << " = " << result << std::endl; 
+		std::cout << date << " => " << value << " = " << result << std::endl; 
 	}
 }
