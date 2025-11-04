@@ -13,8 +13,9 @@ class PmergeMe
 		std::deque<int> _d;
 		
 		//Container independent, works for both Vector or Deque
-		std::vector<int> makeJacobIndices(int n);
-		
+		std::vector<int> makeJacobIndicesV(int n);
+		std::deque<int>makeJacobIndicesD(int n);
+
 		//For Deque container
 		void comparePairs(const std::deque<int>& source, std::deque<int>& maxList, std::deque<int>& minList, int& unpairedValue, bool& hasUnpairedValue);
 		void insertSorted(std::deque<int>& mainChain, int value);
@@ -29,18 +30,20 @@ class PmergeMe
 	public:
 		PmergeMe();
 		~PmergeMe();
-
+		
 		bool convertStringToInt(const std::string& value);
 		void printContainer() const;
-		void printSortedDeque() const;
-		void printSortedVector() const;
+		bool  check_duplicates() const;
+		void startSortCheckTimePrintouts(int value);
+		
 		//Deque
 		void fillDeque();
 		void dequeSortAlgorithm();
-		void vectorSortAlgorithm();
+		void printSortedDeque() const;
+		
 		//Vector
-
-
+		void vectorSortAlgorithm();
+		void printSortedVector() const;
 };
 
 #endif

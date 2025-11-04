@@ -18,4 +18,19 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+test1: all
+	@echo "Running subject test1..."
+	@echo "./PmergeMe 3 5 9 7 4"
+	@./PmergeMe 3 5 9 7 4
+
+test2: all
+	@echo "Running subject test2..."
+	@echo "./PmergeMe `shuf -i 1-100000 -n 3000 | tr "\n" " "`"
+	@./PmergeMe `shuf -i 1-100000 -n 3000 | tr "\n" " "`
+
+test3: all
+	@echo "Running subject test3..."
+	@echo './PmergeMe "-1" "2"'
+	-@./PmergeMe "-1" "2" || true
+
+.PHONY: all clean fclean re test1
