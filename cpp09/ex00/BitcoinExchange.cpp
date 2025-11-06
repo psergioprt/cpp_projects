@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:58:07 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/11/04 16:57:20 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/11/06 15:51:39 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,19 @@ bool BitcoinExchange::valueChecker(const std::string& num) const
 	if (num.empty())
 		return false;
 	bool isDecimal = false;
-	if (num[0] == '.' || num[num.size() - 1] == '.')
-		return false;
-	for (size_t i = 0; i < num.size(); i++)
+	size_t start = 0;
+
+	if (num[0] == '-')
 	{
-		if (!isdigit(num[i]) && num[i] != '.' && num[0] != '-')
+		if (num.size() == 1)
+			return false;
+		start = 1;
+	}
+	if (num[start] == '.' || num[num.size() - 1] == '.')
+		return false;
+	for (size_t i = start; i < num.size(); i++)
+	{
+		if (!isdigit(num[i]) && num[i] != '.')
 			return false;
 		if (num[i] == '.')
 		{

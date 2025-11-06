@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 10:10:51 by pauldos-          #+#    #+#             */
-/*   Updated: 2025/10/31 10:10:57 by pauldos-         ###   ########.fr       */
+/*   Updated: 2025/11/06 15:13:04 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class RPN
 {
 	private:
 		std::stack<int> _stack;
-		int _error;
+		bool _error;
 
 		RPN(const RPN& other);
 		RPN& operator=(const RPN& other);

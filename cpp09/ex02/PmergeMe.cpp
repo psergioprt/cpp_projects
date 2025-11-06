@@ -6,10 +6,27 @@
 #include <algorithm>
 #include <iomanip>
 
-
 PmergeMe::PmergeMe() : _number(0){}
 
 PmergeMe::~PmergeMe(){}
+
+PmergeMe::PmergeMe(const PmergeMe& other)
+{
+	this->_number = other._number;
+	this->_v = other._v;
+	this->_d = other._d;
+}
+
+PmergeMe& PmergeMe::operator=(const PmergeMe& other)
+{
+	if (this != &other)
+	{
+		this->_number = other._number;
+		this->_v = other._v;
+		this->_d = other._d;
+	}
+	return *this;
+}
 
 //Support Functions
 

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/06 17:20:07 by pauldos-          #+#    #+#             */
+/*   Updated: 2025/11/06 17:20:10 by pauldos-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <string>
 #include <vector>
 #include <deque>
@@ -11,6 +23,9 @@ class PmergeMe
 		int _number;
 		std::vector<int> _v;
 		std::deque<int> _d;
+		
+		PmergeMe(const PmergeMe& other);
+		PmergeMe& operator=(const PmergeMe& other);
 		
 		//Container independent, works for both Vector or Deque
 		std::vector<int> makeJacobIndicesV(int n);
@@ -30,7 +45,7 @@ class PmergeMe
 	public:
 		PmergeMe();
 		~PmergeMe();
-		
+
 		bool convertStringToInt(const std::string& value);
 		void printContainer() const;
 		bool  check_duplicates() const;
