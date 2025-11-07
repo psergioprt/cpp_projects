@@ -51,7 +51,8 @@ bool PmergeMe::convertStringToInt(const std::string& value)
 		}
 	}
 	_number = atoi(value.c_str());
-	check_duplicates();
+	if (!check_duplicates())
+		return false;
 	_v.push_back(_number);
 	return true;
 }
@@ -76,19 +77,15 @@ void PmergeMe::startSortCheckTimePrintouts(int value)
 	vectorSortAlgorithm();
 	clock_t end_v = clock();
 	
-/*	std::cout << "Print sorted Deque" << std::endl;
-	printSortedDeque();
-	std::cout << "Print sorted Vector" << std::endl;
-*/	printSortedVector();
+// Uncomment the below line if you want to check deque sorted output during tests.
+//	printSortedDeque();
+	printSortedVector();
 
 	double elapsed_d = static_cast<double>(end_d - start_d) / CLOCKS_PER_SEC * 1e2;
-	std::cout << std::fixed << std::setprecision(5);
 	std::cout << "Time to process a range of " << value << " elements with std::deque : " << elapsed_d << " us" << std::endl;
 
 	double elapsed_v = static_cast<double>(end_v - start_v) / CLOCKS_PER_SEC * 1e2;
 	std::cout << "Time to process a range of " << value << " elements with std::vector : " << elapsed_v << " us" << std::endl;
-
-
 }
 
 void PmergeMe::printSortedDeque() const
@@ -98,30 +95,6 @@ void PmergeMe::printSortedDeque() const
 		std::cout << _d[i] << " ";
 	std::cout << std::endl;
 }
-
-void PmergeMe::printSortedVector() const
-{
-	std::cout << "After: ";
-	for (size_t i = 0; i < _v.size(); i++)
-		std::cout << _v[i] << " ";
-	std::cout << std::endl;
-}
-
-/*Jacobsthal sequence generator works for both vector and deque
-J0 = 0, J1 = 1
-Jn = Jn-1 + 2 * Jn-2, for n >= 2
-
-J1 = 1, J2 = 3
-next = 3 + 2 * 1 = 5
-J1 = J2 = 3
-J2 = next = 5
-
-next = 5 + 2 * 3 = 11
-j1 = 5
-j2 = 11*/
-
-
-
 
 std::deque<int> PmergeMe::makeJacobIndicesD(int n)
 {
@@ -236,6 +209,14 @@ void PmergeMe::dequeSortAlgorithm()
 
 //Vector container Functions
 
+void PmergeMe::printSortedVector() const
+{
+	std::cout << "After: ";
+	for (size_t i = 0; i < _v.size(); i++)
+		std::cout << _v[i] << " ";
+	std::cout << std::endl;
+}
+
 std::vector<int> PmergeMe::makeJacobIndicesV(int n)
 {
 	std::vector<int> ind;
@@ -313,17 +294,17 @@ void PmergeMe::fordJohnson(std::vector<int>& arr)
 	if (!minList.empty())
         	insertSorted(result, minList[0]);
 	
-	for (size_t i = 1; i < jac.size(); ++i)
+	for (size_t i = 1; i < jac.size(); i++)
 	{
 		int idx = jac[i] - 1;
 		if (idx < (int)minList.size())
 			insertSorted(result, minList[idx]);
 	}
 
-	for (size_t i = 0; i < minList.size(); ++i)
+	for (size_t i = 0; i < minList.size(); i++)
 	{
 		bool used = false;
-		for (size_t j = 0; j < jac.size(); ++j)
+		for (size_t j = 0; j < jac.size(); j++)
 		{
 			if ((int)jac[j] - 1 == (int)i)
 			{
